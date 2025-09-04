@@ -56,7 +56,9 @@ pnpm run lint
 - **Primary Color**: #391892 (DAFCG purple)
 - **Success Color**: #18DD89 (DAFCG green)
 - **Border Radius**: 10px (global standard)
-- **Typography**: Cooper Hewitt + Inter fonts
+- **Typography**: 
+  - **Cooper Hewitt**: Headers and buttons (uppercase) - font available in `public/fonts/`
+  - **Inter**: Body text and all other content
 - **Icons**: Lucide icons only
 - **Design Rules**: No gradients, no emojis, no colored borders on cards
 
@@ -65,18 +67,25 @@ pnpm run lint
 ```text
 src/
 ├── components/
-│   ├── Layout.astro          # Main wrapper with header
+│   ├── Layout.astro          # Main wrapper with navbar + footer
 │   ├── Card.astro            # Consistent card styling
 │   ├── Button.astro          # Primary/secondary variants
 │   ├── ProgressBar.astro     # For surveys/checklists
 │   └── StatusBadge.astro     # Live/demo/interactive badges
 ├── pages/
-│   ├── index.astro           # Main landing page
+│   ├── index.astro           # Main landing page with demo navigation
 │   ├── participant-journey.astro
 │   └── surveys/              # Survey form pages
 └── styles/
     └── global.css            # Global styles and Tailwind imports
 ```
+
+### Original Content Structure
+
+Original POC files in `originals/` directory provide content reference:
+- No existing navigation - navbar/footer will be added
+- Focus on content accuracy, not design replication
+- Use Tailwind + DAFCG brand styling instead of original CSS
 
 ### Migration Strategy
 
@@ -102,6 +111,13 @@ Pages should be migrated in complexity order:
 - Define interfaces for all props, data structures, and mock data
 - Use strict TypeScript configuration
 - Type all component props explicitly
+
+### shadcn/ui Integration
+
+- **CRITICAL**: Use shadcn/ui components EVERYWHERE possible
+- Prefer shadcn/ui components over custom implementations
+- Follow shadcn/ui patterns and conventions
+- Customize shadcn/ui components with DAFCG branding when needed
 
 ### Tailwind-Centric Styling
 

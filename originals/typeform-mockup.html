@@ -1,0 +1,867 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DAFCG Boutique Consulting Firm Benchmarking Study - Survey</title>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        @font-face {
+            font-family: 'Cooper Hewitt';
+            src: url('./fonts/CooperHewitt-Bold.woff2') format('woff2');
+            font-weight: 700;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: #391892;
+            min-height: 100vh;
+            padding: 40px 20px;
+            color: #212C40;
+        }
+
+        .survey-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #F7F7F7;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.2);
+        }
+
+        .survey-header {
+            background: #391892;
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+
+        .survey-header h1 {
+            font-family: 'Cooper Hewitt', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            font-size: 2.2em;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .survey-header p {
+            font-size: 1.1em;
+            opacity: 0.9;
+            line-height: 1.5;
+        }
+
+        .survey-meta {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 25px;
+            flex-wrap: wrap;
+        }
+
+        .meta-item {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 10px 20px;
+            border-radius: 10px;
+            font-size: 0.9em;
+            font-weight: 600;
+        }
+
+        .survey-content {
+            padding: 40px;
+        }
+
+        .section {
+            margin-bottom: 50px;
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            border-left: 5px solid transparent;
+        }
+
+        .section h2 {
+            font-family: 'Cooper Hewitt', 'Inter', sans-serif;
+            color: #391892;
+            font-size: 1.6em;
+            font-weight: 700;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .section-number {
+            background: #18DD89;
+            color: #391892;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9em;
+            font-weight: 700;
+        }
+
+        .question-group {
+            margin-bottom: 25px;
+            padding: 20px;
+            background: #F7F7F7;
+            border-radius: 10px;
+            border: 1px solid transparent;
+        }
+
+        .question-label {
+            font-weight: 600;
+            color: #212C40;
+            margin-bottom: 12px;
+            font-size: 1.05em;
+        }
+
+        .question-description {
+            font-size: 0.9em;
+            color: #6A44AE;
+            margin-bottom: 15px;
+            line-height: 1.4;
+        }
+
+        .input-field {
+            width: 100%;
+            padding: 12px 16px;
+            border: 2px solid transparent;
+            border-radius: 10px;
+            font-size: 1em;
+            font-family: 'Inter', sans-serif;
+            transition: all 0.3s ease;
+        }
+
+        .input-field:focus {
+            outline: none;
+            border-color: transparent;
+            box-shadow: 0 0 0 3px rgba(24, 221, 137, 0.1);
+        }
+
+        .input-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .input-grid-3 {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 15px;
+        }
+
+        .radio-group, .checkbox-group {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .radio-item, .checkbox-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 15px;
+            background: white;
+            border-radius: 10px;
+            border: 1px solid transparent;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .radio-item:hover, .checkbox-item:hover {
+            border-color: transparent;
+            background: rgba(24, 221, 137, 0.05);
+        }
+
+        .radio-item input, .checkbox-item input {
+            accent-color: #18DD89;
+        }
+
+        .textarea-field {
+            width: 100%;
+            min-height: 100px;
+            padding: 12px 16px;
+            border: 2px solid transparent;
+            border-radius: 10px;
+            font-size: 1em;
+            font-family: 'Inter', sans-serif;
+            resize: vertical;
+            transition: all 0.3s ease;
+        }
+
+        .textarea-field:focus {
+            outline: none;
+            border-color: transparent;
+            box-shadow: 0 0 0 3px rgba(24, 221, 137, 0.1);
+        }
+
+        .submit-section {
+            text-align: center;
+            padding: 40px;
+            background: #391892;
+            margin: 40px -40px -40px -40px;
+            border-radius: 0 0 10px 10px;
+        }
+
+        .submit-btn {
+            background: #18DD89;
+            color: #391892;
+            padding: 16px 40px;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1em;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .submit-btn:hover {
+            background: #16c77a;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(24, 221, 137, 0.3);
+        }
+
+        .consent-section {
+            background: #18DD89;
+            padding: 25px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            border: 2px solid transparent;
+        }
+
+        .consent-title {
+            font-weight: 700;
+            color: #391892;
+            margin-bottom: 15px;
+            font-size: 1.1em;
+        }
+
+        .required-indicator {
+            color: #E53E3E;
+            font-weight: 700;
+        }
+
+        @media (max-width: 768px) {
+            .survey-content {
+                padding: 20px;
+            }
+            
+            .section {
+                padding: 20px;
+            }
+            
+            .input-grid,
+            .input-grid-3 {
+                grid-template-columns: 1fr;
+            }
+            
+            .survey-header {
+                padding: 30px 20px;
+            }
+            
+            .survey-header h1 {
+                font-size: 1.8em;
+            }
+            
+            .survey-meta {
+                gap: 15px;
+            }
+        }
+
+        .icon {
+            width: 16px;
+            height: 16px;
+            display: inline-block;
+            vertical-align: middle;
+            margin-right: 6px;
+        }
+        .icon-large {
+            width: 20px;
+            height: 20px;
+        }
+        .icon-xlarge {
+            width: 24px;
+            height: 24px;
+        }
+    </style>
+</head>
+<body>
+    <div class="survey-container">
+        <div class="survey-header">
+            <h1><i data-lucide="target" class="icon icon-large"></i>DAFCG Benchmarking Study Survey</h1>
+            <p>Help us create the most comprehensive boutique consulting industry report by sharing your firm's metrics and insights.</p>
+            <div class="survey-meta">
+                <div class="meta-item"><i data-lucide="bar-chart-3" class="icon"></i>60+ Questions</div>
+                <div class="meta-item"><i data-lucide="clock" class="icon"></i>15-20 Minutes</div>
+                <div class="meta-item"><i data-lucide="shield" class="icon"></i>Confidential</div>
+                <div class="meta-item"><i data-lucide="lightbulb" class="icon"></i>Free Report</div>
+            </div>
+        </div>
+
+        <div class="survey-content">
+            <!-- Consent Section -->
+            <div class="consent-section">
+                <div class="consent-title"><i data-lucide="clipboard-list" class="icon"></i>Participation Consent & Data Usage Agreement</div>
+                <div class="question-group">
+                    <div class="checkbox-group">
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="consent-participate" required>
+                            <label for="consent-participate">I consent to participate in this benchmarking study and understand my data will be used for industry analysis</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="consent-aggregate" required>
+                            <label for="consent-aggregate">I understand my individual responses will be aggregated with others and not identifiable in the final report</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="consent-report">
+                            <label for="consent-report">I would like to receive the final benchmarking report (recommended)</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 1: Firm Profile -->
+            <div class="section">
+                <h2><span class="section-number">1</span>Firm Profile & Basic Information</h2>
+                
+                <div class="question-group">
+                    <div class="question-label">Company Name <span class="required-indicator">*</span></div>
+                    <input type="text" class="input-field" placeholder="Enter your firm name" required>
+                </div>
+
+                <div class="question-group">
+                    <div class="question-label">Primary Industry Focus <span class="required-indicator">*</span></div>
+                    <div class="question-description">Select your primary consulting focus area</div>
+                    <div class="radio-group">
+                        <div class="radio-item">
+                            <input type="radio" name="industry" id="strategy" value="strategy">
+                            <label for="strategy">Strategy & Management Consulting</label>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" name="industry" id="technology" value="technology">
+                            <label for="technology">Technology & Digital Transformation</label>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" name="industry" id="operations" value="operations">
+                            <label for="operations">Operations & Process Improvement</label>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" name="industry" id="financial" value="financial">
+                            <label for="financial">Financial Advisory & M&A</label>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" name="industry" id="hr" value="hr">
+                            <label for="hr">Human Resources & Change Management</label>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" name="industry" id="other" value="other">
+                            <label for="other">Other (please specify)</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="question-group">
+                    <div class="question-label">Geographic Market <span class="required-indicator">*</span></div>
+                    <div class="input-grid">
+                        <div>
+                            <div class="question-description">Primary Office Location</div>
+                            <input type="text" class="input-field" placeholder="City, State">
+                        </div>
+                        <div>
+                            <div class="question-description">Markets Served</div>
+                            <input type="text" class="input-field" placeholder="Regional, National, Global">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="question-group">
+                    <div class="question-label">Firm Size Metrics <span class="required-indicator">*</span></div>
+                    <div class="input-grid-3">
+                        <div>
+                            <div class="question-description">Total Employees</div>
+                            <input type="number" class="input-field" placeholder="25">
+                        </div>
+                        <div>
+                            <div class="question-description">Consultants</div>
+                            <input type="number" class="input-field" placeholder="18">
+                        </div>
+                        <div>
+                            <div class="question-description">Partners/Principals</div>
+                            <input type="number" class="input-field" placeholder="3">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 2: Financial Performance -->
+            <div class="section">
+                <h2><span class="section-number">2</span>Financial Performance & Revenue</h2>
+                
+                <div class="question-group">
+                    <div class="question-label">Annual Revenue (2024) <span class="required-indicator">*</span></div>
+                    <div class="question-description">Please provide your best estimate for 2024 total revenue</div>
+                    <div class="radio-group">
+                        <div class="radio-item">
+                            <input type="radio" name="revenue" value="under-1m">
+                            <label>Under $1M</label>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" name="revenue" value="1m-3m">
+                            <label>$1M - $3M</label>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" name="revenue" value="3m-5m">
+                            <label>$3M - $5M</label>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" name="revenue" value="5m-10m">
+                            <label>$5M - $10M</label>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" name="revenue" value="over-10m">
+                            <label>Over $10M</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="question-group">
+                    <div class="question-label">Revenue Breakdown <span class="required-indicator">*</span></div>
+                    <div class="question-description">Approximate percentage breakdown (should total 100%)</div>
+                    <div class="input-grid">
+                        <div>
+                            <div class="question-description">Project-based Revenue (%)</div>
+                            <input type="number" class="input-field" placeholder="70" min="0" max="100">
+                        </div>
+                        <div>
+                            <div class="question-description">Retainer Revenue (%)</div>
+                            <input type="number" class="input-field" placeholder="30" min="0" max="100">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="question-group">
+                    <div class="question-label">Average Project Metrics</div>
+                    <div class="input-grid-3">
+                        <div>
+                            <div class="question-description">Avg Project Value ($)</div>
+                            <input type="number" class="input-field" placeholder="150000">
+                        </div>
+                        <div>
+                            <div class="question-description">Avg Project Duration (months)</div>
+                            <input type="number" class="input-field" placeholder="4">
+                        </div>
+                        <div>
+                            <div class="question-description">Projects Completed (2024)</div>
+                            <input type="number" class="input-field" placeholder="12">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 3: Cost Structure -->
+            <div class="section">
+                <h2><span class="section-number">3</span>Cost Structure & Operations</h2>
+                
+                <div class="question-group">
+                    <div class="question-label">Personnel Costs (% of Revenue) <span class="required-indicator">*</span></div>
+                    <div class="input-grid">
+                        <div>
+                            <div class="question-description">Total Personnel Costs (%)</div>
+                            <input type="number" class="input-field" placeholder="65" min="0" max="100">
+                        </div>
+                        <div>
+                            <div class="question-description">Partner/Principal Compensation (%)</div>
+                            <input type="number" class="input-field" placeholder="35" min="0" max="100">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="question-group">
+                    <div class="question-label">Operating Expenses (% of Revenue)</div>
+                    <div class="input-grid-3">
+                        <div>
+                            <div class="question-description">Office/Rent (%)</div>
+                            <input type="number" class="input-field" placeholder="8" min="0" max="100">
+                        </div>
+                        <div>
+                            <div class="question-description">Technology (%)</div>
+                            <input type="number" class="input-field" placeholder="5" min="0" max="100">
+                        </div>
+                        <div>
+                            <div class="question-description">Marketing/BD (%)</div>
+                            <input type="number" class="input-field" placeholder="7" min="0" max="100">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="question-group">
+                    <div class="question-label">Profitability Metrics</div>
+                    <div class="input-grid">
+                        <div>
+                            <div class="question-description">Gross Margin (%)</div>
+                            <input type="number" class="input-field" placeholder="45" min="0" max="100">
+                        </div>
+                        <div>
+                            <div class="question-description">Net Profit Margin (%)</div>
+                            <input type="number" class="input-field" placeholder="20" min="0" max="100">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 4: Pricing & Client Metrics -->
+            <div class="section">
+                <h2><span class="section-number">4</span>Pricing Strategy & Client Portfolio</h2>
+                
+                <div class="question-group">
+                    <div class="question-label">Billing Rate Structure <span class="required-indicator">*</span></div>
+                    <div class="input-grid-3">
+                        <div>
+                            <div class="question-description">Partner Rate ($/hour)</div>
+                            <input type="number" class="input-field" placeholder="450">
+                        </div>
+                        <div>
+                            <div class="question-description">Senior Consultant Rate ($/hour)</div>
+                            <input type="number" class="input-field" placeholder="275">
+                        </div>
+                        <div>
+                            <div class="question-description">Junior Consultant Rate ($/hour)</div>
+                            <input type="number" class="input-field" placeholder="175">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="question-group">
+                    <div class="question-label">Client Portfolio Metrics</div>
+                    <div class="input-grid-3">
+                        <div>
+                            <div class="question-description">Total Active Clients</div>
+                            <input type="number" class="input-field" placeholder="8">
+                        </div>
+                        <div>
+                            <div class="question-description">Repeat Client Rate (%)</div>
+                            <input type="number" class="input-field" placeholder="70" min="0" max="100">
+                        </div>
+                        <div>
+                            <div class="question-description">Avg Client Tenure (years)</div>
+                            <input type="number" class="input-field" placeholder="2.5">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="question-group">
+                    <div class="question-label">Pricing Model Preferences</div>
+                    <div class="question-description">Which pricing models do you use? (Select all that apply)</div>
+                    <div class="checkbox-group">
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="hourly">
+                            <label for="hourly">Hourly Billing</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="fixed-fee">
+                            <label for="fixed-fee">Fixed Fee Projects</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="retainer">
+                            <label for="retainer">Monthly Retainers</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="value-based">
+                            <label for="value-based">Value-Based Pricing</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="performance">
+                            <label for="performance">Performance-Based Fees</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 5: Business Development -->
+            <div class="section">
+                <h2><span class="section-number">5</span>Business Development & Growth</h2>
+                
+                <div class="question-group">
+                    <div class="question-label">Lead Generation Sources</div>
+                    <div class="question-description">Rank your top 3 lead sources by effectiveness (1 = most effective)</div>
+                    <div class="input-grid">
+                        <div>
+                            <select class="input-field">
+                                <option value="">Referrals from Existing Clients</option>
+                                <option value="1">1st Most Effective</option>
+                                <option value="2">2nd Most Effective</option>
+                                <option value="3">3rd Most Effective</option>
+                            </select>
+                        </div>
+                        <div>
+                            <select class="input-field">
+                                <option value="">Professional Network/Word of Mouth</option>
+                                <option value="1">1st Most Effective</option>
+                                <option value="2">2nd Most Effective</option>
+                                <option value="3">3rd Most Effective</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="input-grid">
+                        <div>
+                            <select class="input-field">
+                                <option value="">LinkedIn/Social Media</option>
+                                <option value="1">1st Most Effective</option>
+                                <option value="2">2nd Most Effective</option>
+                                <option value="3">3rd Most Effective</option>
+                            </select>
+                        </div>
+                        <div>
+                            <select class="input-field">
+                                <option value="">Content Marketing/Thought Leadership</option>
+                                <option value="1">1st Most Effective</option>
+                                <option value="2">2nd Most Effective</option>
+                                <option value="3">3rd Most Effective</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="question-group">
+                    <div class="question-label">Sales Metrics</div>
+                    <div class="input-grid-3">
+                        <div>
+                            <div class="question-description">Win Rate (%)</div>
+                            <input type="number" class="input-field" placeholder="60" min="0" max="100">
+                        </div>
+                        <div>
+                            <div class="question-description">Avg Sales Cycle (days)</div>
+                            <input type="number" class="input-field" placeholder="45">
+                        </div>
+                        <div>
+                            <div class="question-description">Proposals Sent (2024)</div>
+                            <input type="number" class="input-field" placeholder="20">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="question-group">
+                    <div class="question-label">Business Development Investment</div>
+                    <div class="input-grid">
+                        <div>
+                            <div class="question-description">BD/Marketing Budget (% of revenue)</div>
+                            <input type="number" class="input-field" placeholder="12" min="0" max="100">
+                        </div>
+                        <div>
+                            <div class="question-description">Time Spent on BD (hours/week)</div>
+                            <input type="number" class="input-field" placeholder="15">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 6: Operations & Efficiency -->
+            <div class="section">
+                <h2><span class="section-number">6</span>Operations & Productivity</h2>
+                
+                <div class="question-group">
+                    <div class="question-label">Utilization Metrics <span class="required-indicator">*</span></div>
+                    <div class="input-grid">
+                        <div>
+                            <div class="question-description">Target Billable Hours per Consultant per Week</div>
+                            <input type="number" class="input-field" placeholder="32">
+                        </div>
+                        <div>
+                            <div class="question-description">Actual Average Utilization Rate (%)</div>
+                            <input type="number" class="input-field" placeholder="75" min="0" max="100">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="question-group">
+                    <div class="question-label">Technology & Tools</div>
+                    <div class="question-description">Which business tools does your firm use? (Select all that apply)</div>
+                    <div class="checkbox-group">
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="crm">
+                            <label for="crm">CRM System (Salesforce, HubSpot, etc.)</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="project-mgmt">
+                            <label for="project-mgmt">Project Management Software</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="time-tracking">
+                            <label for="time-tracking">Time Tracking/Billing Software</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="financial">
+                            <label for="financial">Financial Management System</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="collaboration">
+                            <label for="collaboration">Team Collaboration Tools</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="question-group">
+                    <div class="question-label">Operational Challenges</div>
+                    <div class="question-description">What are your biggest operational challenges? (Rank top 3)</div>
+                    <div class="input-grid">
+                        <div>
+                            <select class="input-field">
+                                <option value="">Finding Qualified Talent</option>
+                                <option value="1">Biggest Challenge</option>
+                                <option value="2">2nd Biggest Challenge</option>
+                                <option value="3">3rd Biggest Challenge</option>
+                            </select>
+                        </div>
+                        <div>
+                            <select class="input-field">
+                                <option value="">Maintaining Consistent Pipeline</option>
+                                <option value="1">Biggest Challenge</option>
+                                <option value="2">2nd Biggest Challenge</option>
+                                <option value="3">3rd Biggest Challenge</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 7: Strategic Questions -->
+            <div class="section">
+                <h2><span class="section-number">7</span>Strategic Insights & Future Outlook</h2>
+                
+                <div class="question-group">
+                    <div class="question-label">Growth Strategy <span class="required-indicator">*</span></div>
+                    <div class="question-description">What's your primary growth strategy for the next 2 years?</div>
+                    <div class="radio-group">
+                        <div class="radio-item">
+                            <input type="radio" name="growth" value="expand-team">
+                            <label>Expand team and capacity</label>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" name="growth" value="new-services">
+                            <label>Develop new service offerings</label>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" name="growth" value="geographic">
+                            <label>Geographic expansion</label>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" name="growth" value="premium">
+                            <label>Move up-market to premium clients</label>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" name="growth" value="specialization">
+                            <label>Deeper specialization in niche</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="question-group">
+                    <div class="question-label">Industry Trends Impact</div>
+                    <div class="question-description">How have recent trends affected your business? (Rate impact: 5=very positive, 3=neutral, 1=very negative)</div>
+                    <div class="input-grid">
+                        <div>
+                            <div class="question-description">AI/Automation Technologies</div>
+                            <select class="input-field">
+                                <option value="5">Very Positive (5)</option>
+                                <option value="4">Positive (4)</option>
+                                <option value="3">Neutral (3)</option>
+                                <option value="2">Negative (2)</option>
+                                <option value="1">Very Negative (1)</option>
+                            </select>
+                        </div>
+                        <div>
+                            <div class="question-description">Remote/Hybrid Work Models</div>
+                            <select class="input-field">
+                                <option value="5">Very Positive (5)</option>
+                                <option value="4">Positive (4)</option>
+                                <option value="3">Neutral (3)</option>
+                                <option value="2">Negative (2)</option>
+                                <option value="1">Very Negative (1)</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="question-group">
+                    <div class="question-label">Additional Insights</div>
+                    <div class="question-description">Any additional insights about the boutique consulting market you'd like to share?</div>
+                    <textarea class="textarea-field" placeholder="Share your thoughts on market trends, challenges, opportunities, or anything else relevant to boutique consulting firms..."></textarea>
+                </div>
+            </div>
+
+            <!-- Section 8: Contact Information -->
+            <div class="section">
+                <h2><span class="section-number">8</span>Contact Information & Follow-up</h2>
+                
+                <div class="question-group">
+                    <div class="question-label">Primary Contact <span class="required-indicator">*</span></div>
+                    <div class="input-grid">
+                        <div>
+                            <div class="question-description">Name</div>
+                            <input type="text" class="input-field" placeholder="John Smith" required>
+                        </div>
+                        <div>
+                            <div class="question-description">Title</div>
+                            <input type="text" class="input-field" placeholder="Managing Partner">
+                        </div>
+                    </div>
+                    <div class="input-grid">
+                        <div>
+                            <div class="question-description">Email</div>
+                            <input type="email" class="input-field" placeholder="john@consultingfirm.com" required>
+                        </div>
+                        <div>
+                            <div class="question-description">LinkedIn Profile (optional)</div>
+                            <input type="url" class="input-field" placeholder="https://linkedin.com/in/johnsmith">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="question-group">
+                    <div class="question-label">Report Delivery Preferences</div>
+                    <div class="checkbox-group">
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="email-report" checked>
+                            <label for="email-report">Email me the full benchmarking report when available</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="summary-call">
+                            <label for="summary-call">I'm interested in a brief call to discuss the results</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="future-studies">
+                            <label for="future-studies">Keep me informed about future DAFCG research studies</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Submit Section -->
+            <div class="submit-section">
+                <h3 style="color: white; margin-bottom: 20px; font-family: 'Cooper Hewitt', sans-serif;">Ready to Submit Your Responses?</h3>
+                <p style="color: rgba(255,255,255,0.9); margin-bottom: 30px; font-size: 1.1em;">Thank you for participating in the DAFCG Benchmarking Study. Your insights will help create valuable industry benchmarks for boutique consulting firms.</p>
+                <button type="submit" class="submit-btn">Submit Survey & Get My Report</button>
+                <p style="color: rgba(255,255,255,0.7); margin-top: 15px; font-size: 0.9em;">Expected report delivery: December 2025</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>

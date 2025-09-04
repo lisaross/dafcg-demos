@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DAFCG Project Mockups & Demos</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <style>
+        @font-face {
+            font-family: 'Cooper Hewitt';
+            src: url('./fonts/CooperHewitt-Bold.woff2') format('woff2');
+            font-weight: 700;
+            font-style: normal;
+            font-display: swap;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.6;
+            color: #212C40;
+            background: #391892;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .header h1 {
+            font-family: 'Cooper Hewitt', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            color: white;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .header p {
+            color: rgba(255,255,255,0.9);
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .card {
+            background: #F7F7F7;
+            border-radius: 10px;
+            padding: 32px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.2);
+            border-color: transparent;
+        }
+
+        .card h2 {
+            font-family: 'Cooper Hewitt', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: #391892;
+        }
+
+        .card p {
+            color: #212C40;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .card-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            font-size: 0.9rem;
+            color: #6A44AE;
+            font-weight: 500;
+        }
+
+        .status-badge {
+            padding: 4px 12px;
+            border-radius: 10px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .status-live {
+            background: #18DD8920;
+            color: #391892;
+            border: 1px solid transparent;
+        }
+
+        .status-demo {
+            background: #6A44AE20;
+            color: #391892;
+            border: 1px solid transparent;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background: #32373c;
+            color: white;
+            text-decoration: none;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 8px 20px rgba(50, 55, 60, 0.4);
+            background: #2a2e33;
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #4A5568;
+            border: 2px solid transparent;
+        }
+
+        .btn-secondary:hover {
+            background: #F7FAFC;
+            color: #1A202C;
+            border-color: transparent;
+        }
+
+        .btn-accent {
+            background: #18DD89;
+            color: #1A202C;
+        }
+
+        .btn-accent:hover {
+            background: #16c77a;
+            box-shadow: 0 8px 20px rgba(24, 221, 137, 0.3);
+        }
+
+        .footer {
+            text-align: center;
+            color: rgba(255,255,255,0.8);
+            margin-top: 60px;
+        }
+
+        .footer a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .icon {
+            width: 20px;
+            height: 20px;
+            display: inline-block;
+            vertical-align: middle;
+            margin-right: 8px;
+        }
+
+        .icon-large {
+            width: 24px;
+            height: 24px;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 40px 16px;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .card {
+                padding: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>DAFCG Project Mockups</h1>
+            <p>Demonstrations and prototypes for the boutique consulting firm benchmarking study</p>
+        </div>
+
+        <div class="grid">
+            <div class="card">
+                <div class="card-meta">
+                    <span>Journey Mapping</span>
+                    <span class="status-badge status-live">Interactive</span>
+                </div>
+                <h2>Participant Journey Flowchart</h2>
+                <p>Interactive visual flow showing the complete participant experience from initial outreach through report delivery. Includes conversion rates, touchpoints, and success metrics at each stage.</p>
+                <a href="participant-journey.html" class="btn btn-accent">View Journey Map</a>
+            </div>
+
+            <div class="card">
+                <div class="card-meta">
+                    <span>Project Roadmap</span>
+                    <span class="status-badge status-live">Live</span>
+                </div>
+                <h2>DAFCG Roadmap by Pillars</h2>
+                <p>Interactive timeline showing the 5-pillar project roadmap from August to December 2025. Tracks acquisition, gathering, processing, analysis, and reporting phases with critical milestones.</p>
+                <a href="dafcg-roadmap-pillars.html" class="btn btn-accent">View Roadmap</a>
+            </div>
+
+            <div class="card">
+                <div class="card-meta">
+                    <span>Survey Prep</span>
+                    <span class="status-badge status-live">Interactive</span>
+                </div>
+                <h2>Survey Preparation Checklist</h2>
+                <p>Interactive checklist to help participants gather documents before starting the survey. Reduces completion time from 20+ to 10-12 minutes by ensuring they have the right information ready.</p>
+                <a href="survey-prep-checklist.html" class="btn btn-accent">View Prep Checklist</a>
+            </div>
+
+            <div class="card">
+                <div class="card-meta">
+                    <span>Streamlined Survey</span>
+                    <span class="status-badge status-live">Optimized</span>
+                </div>
+                <h2>30-Question Survey (NEW)</h2>
+                <p>Redesigned survey focusing on essential metrics firms already track. Features smart progress tracking, auto-calculations, and section-by-section navigation for better completion rates.</p>
+                <a href="streamlined-survey.html" class="btn btn-accent">View New Survey</a>
+            </div>
+
+            <div class="card">
+                <div class="card-meta">
+                    <span>Original Demo</span>
+                    <span class="status-badge status-demo">Reference</span>
+                </div>
+                <h2>60+ Question Survey (Original)</h2>
+                <p>Original comprehensive survey design with all sections on one page. Useful for comparison with the new streamlined approach and understanding the full scope of data collection.</p>
+                <a href="typeform-mockup.html" class="btn btn-secondary">View Original Survey</a>
+            </div>
+
+            <div class="card">
+                <div class="card-meta">
+                    <span>Data Architecture</span>
+                    <span class="status-badge status-demo">Documentation</span>
+                </div>
+                <h2>BigQuery Schema Diagram</h2>
+                <p>Entity relationship diagram showing the complete data warehouse structure for participant responses, calculated metrics, and benchmarking analysis.</p>
+                <a href="https://github.com/lisaross/dafcg-benchmark/blob/main/docs/technical/bigquery-schema-diagram.md" class="btn btn-secondary" target="_blank">View Schema</a>
+            </div>
+
+            <div class="card">
+                <div class="card-meta">
+                    <span>Live Website</span>
+                    <span class="status-badge status-live">Deployed</span>
+                </div>
+                <h2>Landing Page (Live)</h2>
+                <p>Professional study information page deployed on Cloudflare. Features DAFCG branding, study overview, participation benefits, and call-to-action for prospect conversion.</p>
+                <a href="https://benchmark-2026-landing.pages.dev/" class="btn btn-accent" target="_blank">Visit Live Site</a>
+            </div>
+
+            <div class="card">
+                <div class="card-meta">
+                    <span>Project Timeline</span>
+                    <span class="status-badge status-live">Interactive</span>
+                </div>
+                <h2>Gantt Chart & Timeline</h2>
+                <p>Interactive project timeline showing all 8 phases from Foundation through Report Sales. Includes dependencies, milestones, resource allocation, and critical success metrics.</p>
+                <a href="project-gantt.html" class="btn btn-accent">View Project Timeline</a>
+            </div>
+
+            <div class="card">
+                <div class="card-meta">
+                    <span>Technical Architecture</span>
+                    <span class="status-badge status-live">Documentation</span>
+                </div>
+                <h2>Tech Stack & Process Flow</h2>
+                <p>Complete technical infrastructure visualization showing data flow from Typeform through BigQuery to report delivery. Includes security, compliance, and integration details.</p>
+                <a href="tech-stack-visual.html" class="btn btn-accent">View Architecture</a>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>Part of the <a href="https://github.com/lisaross/dafcg-benchmark">DAFCG Benchmarking Study</a> project</p>
+            <p>Updated: September 2025</p>
+        </div>
+    </div>
+    
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+    </script>
+</body>
+</html>

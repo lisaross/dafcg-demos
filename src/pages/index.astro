@@ -1,16 +1,182 @@
 ---
-
+import Layout from '../components/Layout.astro';
+import Card from '../components/Card.astro';
+import Button from '../components/Button.astro';
+import ProgressBar from '../components/ProgressBar.astro';
+import StatusBadge from '../components/StatusBadge.astro';
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Layout title="DAFCG Demos - Component Showcase">
+  <div class="max-w-6xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-12">
+      <h1 class="text-4xl font-bold text-gray-900 font-cooper-hewitt uppercase mb-4">
+        Component Showcase
+      </h1>
+      <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+        All DAFCG components with TypeScript + shadcn/ui integration
+      </p>
+    </div>
+
+    <!-- Cards Section -->
+    <div class="mb-16">
+      <h2 class="text-2xl font-bold text-gray-900 font-cooper-hewitt uppercase mb-8">Card Components</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <Card 
+          title="Default Card"
+          description="This is a default card with basic styling and shadow."
+          variant="default"
+          status="live"
+          meta="Updated today"
+        />
+        
+        <Card 
+          title="Elevated Card"
+          description="This card has elevated shadow and hover effects."
+          variant="elevated"
+          status="demo"
+          href="/demo-link"
+        />
+        
+        <Card 
+          title="Outlined Card"
+          description="This card uses border styling instead of shadows."
+          variant="outlined"
+          status="interactive"
+          meta="5 min read"
+        />
+      </div>
+    </div>
+
+    <!-- Buttons Section -->
+    <div class="mb-16">
+      <h2 class="text-2xl font-bold text-gray-900 font-cooper-hewitt uppercase mb-8">Button Components</h2>
+      <div class="space-y-6">
+        <!-- Button Variants -->
+        <div class="flex flex-wrap gap-4">
+          <Button variant="primary">Primary Button</Button>
+          <Button variant="secondary">Secondary Button</Button>
+          <Button variant="outline">Outline Button</Button>
+          <Button variant="ghost">Ghost Button</Button>
+          <Button variant="destructive">Destructive Button</Button>
+        </div>
+        
+        <!-- Button Sizes -->
+        <div class="flex flex-wrap gap-4 items-center">
+          <Button variant="primary" size="sm">Small</Button>
+          <Button variant="primary" size="default">Default</Button>
+          <Button variant="primary" size="lg">Large</Button>
+          <Button variant="primary" size="icon">🚀</Button>
+        </div>
+
+        <!-- Link Buttons -->
+        <div class="flex flex-wrap gap-4">
+          <Button variant="primary" href="/surveys">Link as Button</Button>
+          <Button variant="outline" disabled>Disabled Button</Button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Status Badges Section -->
+    <div class="mb-16">
+      <h2 class="text-2xl font-bold text-gray-900 font-cooper-hewitt uppercase mb-8">Status Badges</h2>
+      <div class="space-y-6">
+        <!-- Badge Variants -->
+        <div class="flex flex-wrap gap-4">
+          <StatusBadge status="live" />
+          <StatusBadge status="demo" />
+          <StatusBadge status="interactive" />
+          <StatusBadge status="development" />
+          <StatusBadge status="archived" />
+        </div>
+        
+        <!-- Badge Styles -->
+        <div class="flex flex-wrap gap-4">
+          <StatusBadge status="live" variant="default" />
+          <StatusBadge status="demo" variant="outline" />
+          <StatusBadge status="interactive" variant="secondary" />
+        </div>
+        
+        <!-- Badge Sizes -->
+        <div class="flex flex-wrap gap-4 items-center">
+          <StatusBadge status="live" size="sm" />
+          <StatusBadge status="demo" size="default" />
+          <StatusBadge status="interactive" size="lg" />
+        </div>
+        
+        <!-- Badges with Icons -->
+        <div class="flex flex-wrap gap-4">
+          <StatusBadge status="live" icon />
+          <StatusBadge status="demo" icon />
+          <StatusBadge status="interactive" icon />
+        </div>
+      </div>
+    </div>
+
+    <!-- Progress Bars Section -->
+    <div class="mb-16">
+      <h2 class="text-2xl font-bold text-gray-900 font-cooper-hewitt uppercase mb-8">Progress Bars</h2>
+      <div class="space-y-6">
+        <!-- Basic Progress Bars -->
+        <ProgressBar value={75} label="Survey Completion" />
+        <ProgressBar value={45} label="Project Progress" variant="success" />
+        <ProgressBar value={20} label="Data Collection" variant="warning" />
+        <ProgressBar value={90} label="Analysis Complete" variant="error" />
+        
+        <!-- Different Sizes -->
+        <div class="space-y-4">
+          <ProgressBar value={60} label="Small Progress" size="sm" />
+          <ProgressBar value={60} label="Default Progress" size="default" />
+          <ProgressBar value={60} label="Large Progress" size="lg" />
+        </div>
+        
+        <!-- Without Labels -->
+        <ProgressBar value={85} showPercentage={false} />
+        <ProgressBar value={35} animated variant="success" />
+      </div>
+    </div>
+
+    <!-- Combined Example -->
+    <div class="mb-16">
+      <h2 class="text-2xl font-bold text-gray-900 font-cooper-hewitt uppercase mb-8">Combined Example</h2>
+      <Card 
+        title="Survey Dashboard"
+        description="A comprehensive survey management interface showing all component types working together."
+        variant="elevated"
+        class="max-w-2xl mx-auto"
+      >
+        <div class="space-y-6">
+          <div class="flex justify-between items-center">
+            <StatusBadge status="live" icon />
+            <StatusBadge status="interactive" size="sm" />
+          </div>
+          
+          <ProgressBar 
+            value={68} 
+            label="Overall Completion" 
+            variant="success"
+            size="lg"
+          />
+          
+          <div class="grid grid-cols-2 gap-4">
+            <ProgressBar value={85} label="Response Rate" size="sm" />
+            <ProgressBar value={42} label="Analysis" variant="warning" size="sm" />
+          </div>
+          
+          <div class="flex gap-3 justify-center">
+            <Button variant="primary" size="sm">View Results</Button>
+            <Button variant="outline" size="sm">Export Data</Button>
+          </div>
+        </div>
+      </Card>
+    </div>
+
+    <div class="text-center">
+      <p class="text-gray-500 text-sm mb-4">
+        ✅ Phase 2 Complete - All components ready with DAFCG branding
+      </p>
+      <Button variant="primary" href="/participant-journey">
+        Start Exploring Demos
+      </Button>
+    </div>
+  </div>
+</Layout>

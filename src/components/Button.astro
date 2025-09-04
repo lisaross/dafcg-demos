@@ -1,0 +1,71 @@
+---
+import { type HTMLAttributes } from 'astro/types';
+
+export interface Props extends HTMLAttributes<'button'> {
+  variant?: 'primary' | 'secondary' | 'outline' | 'ghost' | 'destructive';
+  size?: 'sm' | 'default' | 'lg' | 'icon';
+  href?: string;
+  disabled?: boolean;
+  asChild?: boolean;
+}
+
+const { 
+  variant = 'primary',
+  size = 'default',
+  href,
+  disabled = false,
+  asChild = false,
+  class: className,
+  type = 'button',
+  ...props 
+} = Astro.props;
+
+const baseClasses = "inline-flex items-center justify-center rounded-[10px] font-cooper-hewitt uppercase font-bold transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:pointer-events-none disabled:opacity-50";
+
+const variantClasses = {
+  primary: "bg-[#391892] text-white hover:bg-[#2d1370] focus:ring-[#391892] shadow-sm hover:shadow-md active:scale-95",
+  secondary: "bg-[#18DD89] text-white hover:bg-[#15c77a] focus:ring-[#18DD89] shadow-sm hover:shadow-md active:scale-95",
+  outline: "border-2 border-[#391892] text-[#391892] bg-white hover:bg-[#391892] hover:text-white focus:ring-[#391892] active:scale-95",
+  ghost: "text-[#391892] hover:bg-gray-100 focus:ring-gray-200 active:scale-95",
+  destructive: "bg-red-500 text-white hover:bg-red-600 focus:ring-red-500 shadow-sm hover:shadow-md active:scale-95"
+};
+
+const sizeClasses = {
+  sm: "h-8 px-3 text-xs",
+  default: "h-10 px-4 py-2 text-sm",
+  lg: "h-12 px-6 py-3 text-base",
+  icon: "h-10 w-10"
+};
+
+const buttonClasses = `${baseClasses} ${variantClasses[variant]} ${sizeClasses[size]} ${className || ''}`;
+---
+
+{href && !asChild ? (
+  <a href={href} class={buttonClasses} {...props}>
+    <slot />
+  </a>
+) : (
+  <button 
+    type={type} 
+    class={buttonClasses} 
+    disabled={disabled}
+    {...props}
+  >
+    <slot />
+  </button>
+)}
+
+<style>
+  .font-cooper-hewitt {
+    font-family: 'Cooper Hewitt', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* Ensure smooth transitions */
+  button, a {
+    transform-origin: center;
+  }
+</style>
