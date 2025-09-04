@@ -1,0 +1,82 @@
+---
+import type { Pillar } from '../data/roadmapData';
+import PhaseBlock from './PhaseBlock.astro';
+
+interface Props {
+  pillar: Pillar;
+}
+
+const { pillar } = Astro.props;
+---
+
+<div class="pillar-container">
+  <div class="pillar-header">
+    <div class="pillar-number">
+      {pillar.number}
+    </div>
+    <div class="pillar-name">
+      {pillar.name}
+    </div>
+    <div class="pillar-owner">
+      {pillar.owner}
+    </div>
+  </div>
+  
+  {pillar.phases.map((phase) => (
+    <PhaseBlock phase={phase} />
+  ))}
+</div>
+
+<style>
+  .pillar-container {
+    display: grid;
+    grid-template-columns: 200px repeat(5, 1fr);
+    gap: 10px;
+    align-items: stretch;
+    position: relative;
+  }
+  
+  .pillar-header {
+    background: #391892;
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-shadow: 0 5px 15px rgba(57, 24, 146, 0.3);
+  }
+  
+  .pillar-number {
+    font-size: 2em;
+    font-weight: 900;
+    opacity: 0.3;
+    margin-bottom: 5px;
+  }
+  
+  .pillar-name {
+    font-size: 1.2em;
+    font-weight: 700;
+    margin-bottom: 5px;
+  }
+  
+  .pillar-owner {
+    font-size: 0.85em;
+    opacity: 0.9;
+    margin-top: 5px;
+  }
+  
+  @media (max-width: 1200px) {
+    .pillar-container {
+      grid-template-columns: 150px repeat(5, 1fr);
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .pillar-container {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+  }
+</style>

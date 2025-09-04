@@ -1,0 +1,1093 @@
+---
+import Layout from '../components/Layout.astro';
+import Card from '../components/Card.astro';
+import Button from '../components/Button.astro';
+import ProgressBar from '../components/ProgressBar.astro';
+import StatusBadge from '../components/StatusBadge.astro';
+---
+
+<Layout title="DAFCG Benchmarking Study - Streamlined Survey">
+  <!-- Survey Container with DAFCG Purple Background -->
+  <div class="min-h-screen bg-[#391892] p-4 sm:p-6 lg:p-8">
+    <div class="max-w-4xl mx-auto">
+      
+      <!-- Progress Section -->
+      <div class="bg-white p-4 sm:p-6 border-b border-gray-200">
+        <div class="flex justify-between items-center mb-3">
+          <span class="text-sm font-semibold text-[#391892]">
+            Section 1 of 7: Quick Basics
+          </span>
+          <span class="text-sm text-[#391892] font-medium">
+            Let's start with the fundamentals!
+          </span>
+        </div>
+        <ProgressBar value={14.3} variant="success" />
+      </div>
+
+      <!-- Survey Content -->
+      <div class="bg-gray-50 p-4 sm:p-6 space-y-8">
+        
+        <!-- Section 1: Quick Basics -->
+        <Card title="1. Quick Basics" description="Let's start with the fundamentals about your consulting firm" variant="elevated">
+          <div class="mb-4 text-center">
+            <span class="inline-block bg-orange-100 text-orange-800 text-sm font-semibold px-3 py-1 rounded-[10px] border border-orange-200">
+              DRAFT - For Review Only
+            </span>
+          </div>
+          <div class="space-y-6">
+            
+            <!-- Company Name & Website -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+              <div>
+                <label class="block text-sm font-semibold text-gray-900 mb-2">
+                  Company Name <span class="text-red-500">*</span>
+                </label>
+                <input 
+                  type="text" 
+                  class="w-full px-4 py-3 border border-gray-300 rounded-[10px] focus:ring-2 focus:ring-[#18DD89]/20 focus:border-[#18DD89] transition-colors" 
+                  placeholder="Enter your firm name"
+                />
+              </div>
+              <div>
+                <label class="block text-sm font-semibold text-gray-900 mb-2">
+                  Website (optional)
+                </label>
+                <input 
+                  type="url" 
+                  class="w-full px-4 py-3 border border-gray-300 rounded-[10px] focus:ring-2 focus:ring-[#18DD89]/20 focus:border-[#18DD89] transition-colors" 
+                  placeholder="https://yourfirm.com"
+                />
+              </div>
+            </div>
+
+            <!-- Primary Focus -->
+            <div>
+              <label class="block text-sm font-semibold text-gray-900 mb-2">
+                Primary Consulting Focus <span class="text-red-500">*</span>
+              </label>
+              <div class="relative">
+                <select 
+                  id="primaryFocusSelect"
+                  class="w-full px-4 py-3 pr-10 border-2 border-gray-200 rounded-[10px] focus:ring-2 focus:ring-[#18DD89] focus:border-[#18DD89] transition-all duration-200 bg-white shadow-lg hover:border-[#391892] hover:shadow-xl appearance-none cursor-pointer"
+                >
+                  <option value="" class="text-gray-400">Select your primary focus</option>
+                  <option value="strategy" class="text-gray-900">Strategy & Management Consulting</option>
+                  <option value="technology" class="text-gray-900">Technology & Digital Transformation</option>
+                  <option value="operations" class="text-gray-900">Operations & Process Improvement</option>
+                  <option value="financial" class="text-gray-900">Financial Advisory & M&A</option>
+                  <option value="hr" class="text-gray-900">Human Resources & Change Management</option>
+                  <option value="marketing" class="text-gray-900">Marketing & Brand Strategy</option>
+                  <option value="other" class="text-[#391892] font-medium">Other (please specify)</option>
+                </select>
+                <!-- Custom dropdown arrow -->
+                <div class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
+                  <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                  </svg>
+                </div>
+              </div>
+              <div id="primaryFocusOther" class="mt-4 hidden transition-all duration-300">
+                <label class="block text-sm font-medium text-gray-700 mb-2">Please specify your consulting focus:</label>
+                <input 
+                  type="text" 
+                  class="w-full px-4 py-3 border-2 border-[#18DD89]/30 rounded-[10px] focus:ring-2 focus:ring-[#18DD89] focus:border-[#18DD89] transition-all duration-200 bg-[#18DD89]/5 placeholder-gray-500" 
+                  placeholder="e.g., Legal Consulting, Healthcare Advisory, etc."
+                />
+              </div>
+            </div>
+
+            <!-- Years in Business -->
+            <div>
+              <label class="block text-sm font-semibold text-gray-900 mb-2">
+                Years in Business <span class="text-red-500">*</span>
+              </label>
+              <div class="relative">
+                <select class="w-full px-4 py-3 pr-10 border-2 border-gray-200 rounded-[10px] focus:ring-2 focus:ring-[#18DD89] focus:border-[#18DD89] transition-all duration-200 bg-white shadow-lg hover:border-[#391892] hover:shadow-xl appearance-none cursor-pointer">
+                  <option value="" class="text-gray-400">Select range</option>
+                  <option value="0-2" class="text-gray-900">0-2 years</option>
+                  <option value="3-5" class="text-gray-900">3-5 years</option>
+                  <option value="6-10" class="text-gray-900">6-10 years</option>
+                  <option value="11-20" class="text-gray-900">11-20 years</option>
+                  <option value="20+" class="text-gray-900">20+ years</option>
+                </select>
+                <div class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
+                  <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                  </svg>
+                </div>
+              </div>
+            </div>
+
+            <!-- Geographic Markets -->
+            <div>
+              <label class="block text-sm font-semibold text-gray-900 mb-2">
+                Geographic Markets <span class="text-red-500">*</span>
+              </label>
+              <p class="text-sm text-gray-600 mb-3">Check all that apply</p>
+              <div class="space-y-3">
+                <label class="flex items-center space-x-3 cursor-pointer">
+                  <input type="checkbox" class="w-4 h-4 text-[#18DD89] border-gray-300 rounded focus:ring-[#18DD89] focus:ring-2" />
+                  <span class="text-gray-900">Local/Regional</span>
+                </label>
+                <label class="flex items-center space-x-3 cursor-pointer">
+                  <input type="checkbox" class="w-4 h-4 text-[#18DD89] border-gray-300 rounded focus:ring-[#18DD89] focus:ring-2" />
+                  <span class="text-gray-900">National</span>
+                </label>
+                <label class="flex items-center space-x-3 cursor-pointer">
+                  <input type="checkbox" class="w-4 h-4 text-[#18DD89] border-gray-300 rounded focus:ring-[#18DD89] focus:ring-2" />
+                  <span class="text-gray-900">International</span>
+                </label>
+              </div>
+            </div>
+
+          </div>
+        </Card>
+
+        <!-- Section 2: Team Structure -->
+        <Card title="2. Team Structure" description="Help us understand your firm's organizational structure" variant="elevated">
+          <div class="space-y-6">
+            
+            <!-- Total Employees -->
+            <div>
+              <label class="block text-sm font-semibold text-gray-900 mb-2">
+                Total Employees <span class="text-red-500">*</span>
+              </label>
+              <p class="text-sm text-gray-600 mb-3">Include all full-time equivalent employees</p>
+              <input 
+                type="number" 
+                class="w-full px-4 py-3 border border-gray-300 rounded-[10px] focus:ring-2 focus:ring-[#18DD89]/20 focus:border-[#18DD89] transition-colors" 
+                placeholder="25" 
+                min="1"
+              />
+              <div class="mt-2 p-3 bg-[#18DD89]/10 border border-[#18DD89]/20 rounded-[10px] flex items-start gap-2">
+                <svg class="w-4 h-4 text-[#391892] mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                </svg>
+                <span class="text-sm text-[#212C40]">We'll use this to calculate revenue per employee</span>
+              </div>
+            </div>
+
+            <!-- Team Breakdown -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+              <div>
+                <label class="block text-sm font-semibold text-gray-900 mb-2">Partners/Principals</label>
+                <input 
+                  type="number" 
+                  class="w-full px-4 py-3 border border-gray-300 rounded-[10px] focus:ring-2 focus:ring-[#18DD89]/20 focus:border-[#18DD89] transition-colors" 
+                  placeholder="3" 
+                  min="0"
+                />
+              </div>
+              <div>
+                <label class="block text-sm font-semibold text-gray-900 mb-2">Senior Consultants</label>
+                <input 
+                  type="number" 
+                  class="w-full px-4 py-3 border border-gray-300 rounded-[10px] focus:ring-2 focus:ring-[#18DD89]/20 focus:border-[#18DD89] transition-colors" 
+                  placeholder="8" 
+                  min="0"
+                />
+              </div>
+              <div>
+                <label class="block text-sm font-semibold text-gray-900 mb-2">Junior Consultants</label>
+                <input 
+                  type="number" 
+                  class="w-full px-4 py-3 border border-gray-300 rounded-[10px] focus:ring-2 focus:ring-[#18DD89]/20 focus:border-[#18DD89] transition-colors" 
+                  placeholder="12" 
+                  min="0"
+                />
+              </div>
+            </div>
+
+            <!-- Support Staff -->
+            <div>
+              <label class="block text-sm font-semibold text-gray-900 mb-2">Support Staff (Non-billable)</label>
+              <p class="text-sm text-gray-600 mb-3">Admin, sales, operations, marketing</p>
+              <input 
+                type="number" 
+                class="w-full px-4 py-3 border border-gray-300 rounded-[10px] focus:ring-2 focus:ring-[#18DD89]/20 focus:border-[#18DD89] transition-colors" 
+                placeholder="2" 
+                min="0"
+              />
+            </div>
+
+          </div>
+        </Card>
+
+        <!-- Section 3: Financial Performance -->
+        <Card title="3. Financial Performance" description="Your 2024 financial metrics (all information confidential)" variant="elevated">
+          <div class="space-y-6">
+            
+            <!-- 2024 Annual Revenue -->
+            <div>
+              <label class="block text-sm font-semibold text-gray-900 mb-2">
+                2024 Annual Revenue <span class="text-red-500">*</span>
+              </label>
+              <p class="text-sm text-gray-600 mb-4">Total revenue for 2024 or best estimate</p>
+              <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
+                <label class="flex items-center space-x-2 cursor-pointer p-3 bg-white/70 hover:bg-[#18DD89]/5 rounded-[10px] border border-transparent hover:border-[#18DD89]/20 transition-colors">
+                  <input type="radio" name="revenue" class="w-4 h-4 text-[#18DD89] border-gray-300 focus:ring-[#18DD89] focus:ring-2" />
+                  <span class="text-gray-900 text-sm font-medium">Under $1M</span>
+                </label>
+                <label class="flex items-center space-x-2 cursor-pointer p-3 bg-white/70 hover:bg-[#18DD89]/5 rounded-[10px] border border-transparent hover:border-[#18DD89]/20 transition-colors">
+                  <input type="radio" name="revenue" class="w-4 h-4 text-[#18DD89] border-gray-300 focus:ring-[#18DD89] focus:ring-2" />
+                  <span class="text-gray-900 text-sm font-medium">$1M - $3M</span>
+                </label>
+                <label class="flex items-center space-x-2 cursor-pointer p-3 bg-white/70 hover:bg-[#18DD89]/5 rounded-[10px] border border-transparent hover:border-[#18DD89]/20 transition-colors">
+                  <input type="radio" name="revenue" class="w-4 h-4 text-[#18DD89] border-gray-300 focus:ring-[#18DD89] focus:ring-2" />
+                  <span class="text-gray-900 text-sm font-medium">$3M - $5M</span>
+                </label>
+                <label class="flex items-center space-x-2 cursor-pointer p-3 bg-white/70 hover:bg-[#18DD89]/5 rounded-[10px] border border-transparent hover:border-[#18DD89]/20 transition-colors">
+                  <input type="radio" name="revenue" class="w-4 h-4 text-[#18DD89] border-gray-300 focus:ring-[#18DD89] focus:ring-2" />
+                  <span class="text-gray-900 text-sm font-medium">$5M - $10M</span>
+                </label>
+                <label class="flex items-center space-x-2 cursor-pointer p-3 bg-white/70 hover:bg-[#18DD89]/5 rounded-[10px] border border-transparent hover:border-[#18DD89]/20 transition-colors">
+                  <input type="radio" name="revenue" class="w-4 h-4 text-[#18DD89] border-gray-300 focus:ring-[#18DD89] focus:ring-2" />
+                  <span class="text-gray-900 text-sm font-medium">Over $10M</span>
+                </label>
+              </div>
+            </div>
+
+            <!-- Gross Margin -->
+            <div>
+              <label class="block text-sm font-semibold text-gray-900 mb-2">
+                Gross Margin <span class="text-red-500">*</span>
+              </label>
+              <p class="text-sm text-gray-600 mb-4">Revenue minus direct project costs (best estimate)</p>
+              <input 
+                type="range" 
+                class="w-full h-2 bg-gray-200 rounded-[10px] appearance-none cursor-pointer slider" 
+                min="10" 
+                max="80" 
+                value="45"
+              />
+              <div class="text-center mt-2">
+                <span class="text-lg font-semibold text-[#391892]">45%</span>
+              </div>
+            </div>
+
+            <!-- Project vs Retainer -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-sm font-semibold text-gray-900 mb-2">Project vs Retainer Revenue</label>
+                <p class="text-sm text-gray-600 mb-3">% Project-based</p>
+                <input 
+                  type="number" 
+                  class="w-full px-4 py-3 border border-gray-300 rounded-[10px] focus:ring-2 focus:ring-[#18DD89]/20 focus:border-[#18DD89] transition-colors" 
+                  placeholder="70" 
+                  min="0" 
+                  max="100"
+                />
+              </div>
+              <div>
+                <label class="block text-sm font-semibold text-gray-900 mb-2">&nbsp;</label>
+                <p class="text-sm text-gray-600 mb-3">% Retainer-based</p>
+                <input 
+                  type="number" 
+                  class="w-full px-4 py-3 border border-gray-300 rounded-[10px] focus:ring-2 focus:ring-[#18DD89]/20 focus:border-[#18DD89] transition-colors" 
+                  placeholder="30" 
+                  min="0" 
+                  max="100"
+                />
+              </div>
+            </div>
+
+            <!-- Average Project Value -->
+            <div>
+              <label class="block text-sm font-semibold text-gray-900 mb-2">Average Project Value</label>
+              <p class="text-sm text-gray-600 mb-3">Typical project size in dollars</p>
+              <select class="w-full px-4 py-3 border border-gray-300 rounded-[10px] focus:ring-2 focus:ring-[#18DD89]/20 focus:border-[#18DD89] transition-all duration-200 bg-white shadow-sm hover:border-gray-400 focus:shadow-md">
+                <option value="" class="text-gray-500">Select range</option>
+                <option value="under-25k">Under $25K</option>
+                <option value="25k-50k">$25K - $50K</option>
+                <option value="50k-100k">$50K - $100K</option>
+                <option value="100k-250k">$100K - $250K</option>
+                <option value="250k-500k">$250K - $500K</option>
+                <option value="over-500k">Over $500K</option>
+              </select>
+            </div>
+
+            <!-- Client Concentration -->
+            <div>
+              <label class="block text-sm font-semibold text-gray-900 mb-2">Top Client Concentration</label>
+              <p class="text-sm text-gray-600 mb-4">What % of revenue comes from your largest client?</p>
+              <input 
+                type="range" 
+                class="w-full h-2 bg-gray-200 rounded-[10px] appearance-none cursor-pointer slider" 
+                min="5" 
+                max="80" 
+                value="25"
+              />
+              <div class="text-center mt-2">
+                <span class="text-lg font-semibold text-[#391892]">25%</span>
+              </div>
+            </div>
+
+          </div>
+        </Card>
+
+        <!-- Section 4: Billing & Utilization -->
+        <Card title="4. Billing & Utilization" description="Pricing structure and team productivity metrics" variant="elevated">
+          <div class="space-y-6">
+            
+            <!-- Hourly Rates -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+              <div>
+                <label class="block text-sm font-semibold text-gray-900 mb-2">Partner Rate ($/hour)</label>
+                <input 
+                  type="number" 
+                  class="w-full px-4 py-3 border border-gray-300 rounded-[10px] focus:ring-2 focus:ring-[#18DD89]/20 focus:border-[#18DD89] transition-colors" 
+                  placeholder="450" 
+                  min="0"
+                />
+              </div>
+              <div>
+                <label class="block text-sm font-semibold text-gray-900 mb-2">Senior Rate ($/hour)</label>
+                <input 
+                  type="number" 
+                  class="w-full px-4 py-3 border border-gray-300 rounded-[10px] focus:ring-2 focus:ring-[#18DD89]/20 focus:border-[#18DD89] transition-colors" 
+                  placeholder="275" 
+                  min="0"
+                />
+              </div>
+              <div>
+                <label class="block text-sm font-semibold text-gray-900 mb-2">Junior Rate ($/hour)</label>
+                <input 
+                  type="number" 
+                  class="w-full px-4 py-3 border border-gray-300 rounded-[10px] focus:ring-2 focus:ring-[#18DD89]/20 focus:border-[#18DD89] transition-colors" 
+                  placeholder="175" 
+                  min="0"
+                />
+              </div>
+            </div>
+
+            <!-- Team Utilization -->
+            <div>
+              <label class="block text-sm font-semibold text-gray-900 mb-2">
+                Average Team Utilization <span class="text-red-500">*</span>
+              </label>
+              <p class="text-sm text-gray-600 mb-4">What % of available time is billable across your team?</p>
+              <input 
+                type="range" 
+                class="w-full h-2 bg-gray-200 rounded-[10px] appearance-none cursor-pointer slider" 
+                min="30" 
+                max="95" 
+                value="75"
+              />
+              <div class="text-center mt-2">
+                <span class="text-lg font-semibold text-[#391892]">75%</span>
+              </div>
+            </div>
+
+            <!-- Project Duration -->
+            <div>
+              <label class="block text-sm font-semibold text-gray-900 mb-2">Typical Project Duration</label>
+              <p class="text-sm text-gray-600 mb-3">Average length of your projects</p>
+              <select class="w-full px-4 py-3 border border-gray-300 rounded-[10px] focus:ring-2 focus:ring-[#18DD89]/20 focus:border-[#18DD89] transition-all duration-200 bg-white shadow-sm hover:border-gray-400 focus:shadow-md">
+                <option value="" class="text-gray-500">Select duration</option>
+                <option value="under-2weeks">Under 2 weeks</option>
+                <option value="2-4weeks">2-4 weeks</option>
+                <option value="1-3months">1-3 months</option>
+                <option value="3-6months">3-6 months</option>
+                <option value="over-6months">Over 6 months</option>
+              </select>
+            </div>
+
+            <!-- Pricing Models -->
+            <div>
+              <label class="block text-sm font-semibold text-gray-900 mb-2">Pricing Models Used</label>
+              <p class="text-sm text-gray-600 mb-3">Check all that apply</p>
+              <div class="space-y-3">
+                <label class="flex items-center space-x-3 cursor-pointer">
+                  <input type="checkbox" class="w-4 h-4 text-[#18DD89] border-gray-300 rounded focus:ring-[#18DD89] focus:ring-2" />
+                  <span class="text-gray-900">Hourly Billing</span>
+                </label>
+                <label class="flex items-center space-x-3 cursor-pointer">
+                  <input type="checkbox" class="w-4 h-4 text-[#18DD89] border-gray-300 rounded focus:ring-[#18DD89] focus:ring-2" />
+                  <span class="text-gray-900">Fixed Fee Projects</span>
+                </label>
+                <label class="flex items-center space-x-3 cursor-pointer">
+                  <input type="checkbox" class="w-4 h-4 text-[#18DD89] border-gray-300 rounded focus:ring-[#18DD89] focus:ring-2" />
+                  <span class="text-gray-900">Monthly Retainers</span>
+                </label>
+                <label class="flex items-center space-x-3 cursor-pointer">
+                  <input type="checkbox" class="w-4 h-4 text-[#18DD89] border-gray-300 rounded focus:ring-[#18DD89] focus:ring-2" />
+                  <span class="text-gray-900">Value-Based Pricing</span>
+                </label>
+              </div>
+            </div>
+
+          </div>
+        </Card>
+
+        <!-- Section 5: Client Metrics -->
+        <Card title="5. Client Metrics" description="Your client portfolio and business development performance" variant="elevated">
+          <div class="space-y-6">
+            
+            <!-- Active Clients & Retention -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-sm font-semibold text-gray-900 mb-2">
+                  Active Clients <span class="text-red-500">*</span>
+                </label>
+                <input 
+                  type="number" 
+                  class="w-full px-4 py-3 border border-gray-300 rounded-[10px] focus:ring-2 focus:ring-[#18DD89]/20 focus:border-[#18DD89] transition-colors" 
+                  placeholder="8" 
+                  min="1"
+                />
+              </div>
+              <div>
+                <label class="block text-sm font-semibold text-gray-900 mb-2">Client Retention Rate</label>
+                <p class="text-sm text-gray-600 mb-3">Annual retention %</p>
+                <input 
+                  type="number" 
+                  class="w-full px-4 py-3 border border-gray-300 rounded-[10px] focus:ring-2 focus:ring-[#18DD89]/20 focus:border-[#18DD89] transition-colors" 
+                  placeholder="85" 
+                  min="0" 
+                  max="100"
+                />
+              </div>
+            </div>
+
+            <!-- Proposal Win Rate -->
+            <div>
+              <label class="block text-sm font-semibold text-gray-900 mb-2">Proposal Win Rate</label>
+              <p class="text-sm text-gray-600 mb-4">What % of your proposals result in signed contracts?</p>
+              <input 
+                type="range" 
+                class="w-full h-2 bg-gray-200 rounded-[10px] appearance-none cursor-pointer slider" 
+                min="10" 
+                max="90" 
+                value="60"
+              />
+              <div class="text-center mt-2">
+                <span class="text-lg font-semibold text-[#391892]">60%</span>
+              </div>
+            </div>
+
+            <!-- Primary Lead Source -->
+            <div>
+              <label class="block text-sm font-semibold text-gray-900 mb-2">
+                Primary Lead Source <span class="text-red-500">*</span>
+              </label>
+              <p class="text-sm text-gray-600 mb-3">Your most effective source of new clients</p>
+              <div class="relative">
+                <select 
+                  id="leadSourceSelect"
+                  class="w-full px-4 py-3 pr-10 border-2 border-gray-200 rounded-[10px] focus:ring-2 focus:ring-[#18DD89] focus:border-[#18DD89] transition-all duration-200 bg-white shadow-lg hover:border-[#391892] hover:shadow-xl appearance-none cursor-pointer"
+                >
+                  <option value="" class="text-gray-400">Select primary source</option>
+                  <option value="referrals" class="text-gray-900">Client Referrals</option>
+                  <option value="network" class="text-gray-900">Professional Network</option>
+                  <option value="linkedin" class="text-gray-900">LinkedIn/Social Media</option>
+                  <option value="content" class="text-gray-900">Content Marketing</option>
+                  <option value="partnerships" class="text-gray-900">Partner Channels</option>
+                  <option value="events" class="text-gray-900">Speaking/Events</option>
+                  <option value="cold-outreach" class="text-gray-900">Cold Outreach</option>
+                  <option value="other" class="text-[#391892] font-medium">Other (please specify)</option>
+                </select>
+                <div class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
+                  <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                  </svg>
+                </div>
+              </div>
+              <div id="leadSourceOther" class="mt-4 hidden transition-all duration-300">
+                <label class="block text-sm font-medium text-gray-700 mb-2">Please specify your lead source:</label>
+                <input 
+                  type="text" 
+                  class="w-full px-4 py-3 border-2 border-[#18DD89]/30 rounded-[10px] focus:ring-2 focus:ring-[#18DD89] focus:border-[#18DD89] transition-all duration-200 bg-[#18DD89]/5 placeholder-gray-500" 
+                  placeholder="e.g., Industry conferences, cold email, etc."
+                />
+              </div>
+            </div>
+
+          </div>
+        </Card>
+
+        <!-- Section 6: Operations -->
+        <Card title="6. Operations" description="Operational efficiency and team management" variant="elevated">
+          <div class="space-y-6">
+            
+            <!-- Operations Tools & Metrics -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+              <div>
+                <label class="block text-sm font-semibold text-gray-900 mb-2">Annual Employee Turnover</label>
+                <p class="text-sm text-gray-600 mb-3">Departures as % of total team</p>
+                <div class="relative">
+                  <select class="w-full px-4 py-3 pr-10 border-2 border-gray-200 rounded-[10px] focus:ring-2 focus:ring-[#18DD89] focus:border-[#18DD89] transition-all duration-200 bg-white shadow-lg hover:border-[#391892] hover:shadow-xl appearance-none cursor-pointer">
+                    <option value="" class="text-gray-400">Select range</option>
+                    <option value="0-10" class="text-gray-900">0-10%</option>
+                    <option value="11-20" class="text-gray-900">11-20%</option>
+                    <option value="21-30" class="text-gray-900">21-30%</option>
+                    <option value="31-50" class="text-gray-900">31-50%</option>
+                    <option value="over-50" class="text-gray-900">Over 50%</option>
+                  </select>
+                  <div class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
+                    <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </div>
+                </div>
+              </div>
+              
+              <div>
+                <label class="block text-sm font-semibold text-gray-900 mb-2">Project Management Tool</label>
+                <div class="relative">
+                  <select 
+                    id="pmToolSelect"
+                    class="w-full px-4 py-3 pr-10 border-2 border-gray-200 rounded-[10px] focus:ring-2 focus:ring-[#18DD89] focus:border-[#18DD89] transition-all duration-200 bg-white shadow-lg hover:border-[#391892] hover:shadow-xl appearance-none cursor-pointer"
+                  >
+                    <option value="" class="text-gray-400">Select tool</option>
+                    <option value="monday" class="text-gray-900">Monday.com</option>
+                    <option value="asana" class="text-gray-900">Asana</option>
+                    <option value="clickup" class="text-gray-900">ClickUp</option>
+                    <option value="notion" class="text-gray-900">Notion</option>
+                    <option value="smartsheet" class="text-gray-900">Smartsheet</option>
+                    <option value="excel" class="text-gray-900">Excel/Sheets</option>
+                    <option value="custom" class="text-[#391892] font-medium">Custom Solution</option>
+                    <option value="none" class="text-gray-900">No Formal System</option>
+                  </select>
+                  <div class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
+                    <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </div>
+                </div>
+                <div id="pmToolOther" class="mt-4 hidden transition-all duration-300">
+                  <label class="block text-sm font-medium text-gray-700 mb-2">Please specify your tool:</label>
+                  <input 
+                    type="text" 
+                    class="w-full px-4 py-3 border-2 border-[#18DD89]/30 rounded-[10px] focus:ring-2 focus:ring-[#18DD89] focus:border-[#18DD89] transition-all duration-200 bg-[#18DD89]/5 placeholder-gray-500" 
+                    placeholder="e.g., Custom CRM, Airtable, etc."
+                  />
+                </div>
+              </div>
+            </div>
+
+            <!-- Remote Work Policy -->
+            <div>
+              <label class="block text-sm font-semibold text-gray-900 mb-2">
+                Remote Work Policy <span class="text-red-500">*</span>
+              </label>
+              <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+                <label class="flex items-center justify-center space-x-2 cursor-pointer p-3 bg-white/70 hover:bg-[#18DD89]/5 rounded-[10px] border border-transparent hover:border-[#18DD89]/20 transition-colors">
+                  <input type="radio" name="remote" class="w-4 h-4 text-[#18DD89] border-gray-300 focus:ring-[#18DD89] focus:ring-2" />
+                  <span class="text-gray-900 text-sm font-medium">Office-Based</span>
+                </label>
+                <label class="flex items-center justify-center space-x-2 cursor-pointer p-3 bg-white/70 hover:bg-[#18DD89]/5 rounded-[10px] border border-transparent hover:border-[#18DD89]/20 transition-colors">
+                  <input type="radio" name="remote" class="w-4 h-4 text-[#18DD89] border-gray-300 focus:ring-[#18DD89] focus:ring-2" />
+                  <span class="text-gray-900 text-sm font-medium">Hybrid</span>
+                </label>
+                <label class="flex items-center justify-center space-x-2 cursor-pointer p-3 bg-white/70 hover:bg-[#18DD89]/5 rounded-[10px] border border-transparent hover:border-[#18DD89]/20 transition-colors">
+                  <input type="radio" name="remote" class="w-4 h-4 text-[#18DD89] border-gray-300 focus:ring-[#18DD89] focus:ring-2" />
+                  <span class="text-gray-900 text-sm font-medium">Remote</span>
+                </label>
+              </div>
+            </div>
+
+          </div>
+        </Card>
+
+        <!-- Section 7: Strategic Outlook -->
+        <Card title="7. Strategic Outlook" description="Your growth plans and industry perspective" variant="elevated">
+          <div class="space-y-6">
+            
+            <!-- Primary Growth Challenge -->
+            <div>
+              <label class="block text-sm font-semibold text-gray-900 mb-2">
+                Primary Growth Challenge <span class="text-red-500">*</span>
+              </label>
+              <p class="text-sm text-gray-600 mb-4">Select your biggest challenge for growth</p>
+              <div class="space-y-3">
+                <label class="flex items-center space-x-3 cursor-pointer p-3 bg-white/70 hover:bg-[#18DD89]/5 rounded-[10px] border border-transparent hover:border-[#18DD89]/20 transition-colors">
+                  <input type="radio" name="challenge" class="w-4 h-4 text-[#18DD89] border-gray-300 focus:ring-[#18DD89] focus:ring-2" />
+                  <span class="text-gray-900">Finding Qualified Talent</span>
+                </label>
+                <label class="flex items-center space-x-3 cursor-pointer p-3 bg-white/70 hover:bg-[#18DD89]/5 rounded-[10px] border border-transparent hover:border-[#18DD89]/20 transition-colors">
+                  <input type="radio" name="challenge" class="w-4 h-4 text-[#18DD89] border-gray-300 focus:ring-[#18DD89] focus:ring-2" />
+                  <span class="text-gray-900">Maintaining Consistent Pipeline</span>
+                </label>
+                <label class="flex items-center space-x-3 cursor-pointer p-3 bg-white/70 hover:bg-[#18DD89]/5 rounded-[10px] border border-transparent hover:border-[#18DD89]/20 transition-colors">
+                  <input type="radio" name="challenge" class="w-4 h-4 text-[#18DD89] border-gray-300 focus:ring-[#18DD89] focus:ring-2" />
+                  <span class="text-gray-900">Managing Capacity & Utilization</span>
+                </label>
+                <label class="flex items-center space-x-3 cursor-pointer p-3 bg-white/70 hover:bg-[#18DD89]/5 rounded-[10px] border border-transparent hover:border-[#18DD89]/20 transition-colors">
+                  <input type="radio" name="challenge" class="w-4 h-4 text-[#18DD89] border-gray-300 focus:ring-[#18DD89] focus:ring-2" />
+                  <span class="text-gray-900">Pricing & Profitability</span>
+                </label>
+                <label class="flex items-center space-x-3 cursor-pointer p-3 bg-white/70 hover:bg-[#18DD89]/5 rounded-[10px] border border-transparent hover:border-[#18DD89]/20 transition-colors">
+                  <input type="radio" name="challenge" class="w-4 h-4 text-[#18DD89] border-gray-300 focus:ring-[#18DD89] focus:ring-2" />
+                  <span class="text-gray-900">Market Competition</span>
+                </label>
+              </div>
+            </div>
+
+            <!-- Growth Target & Results Discussion -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+              <div>
+                <label class="block text-sm font-semibold text-gray-900 mb-2">2025 Revenue Growth Target</label>
+                <p class="text-sm text-gray-600 mb-3">Expected revenue growth for 2025</p>
+                <div class="relative">
+                  <select class="w-full px-4 py-3 pr-10 border-2 border-gray-200 rounded-[10px] focus:ring-2 focus:ring-[#18DD89] focus:border-[#18DD89] transition-all duration-200 bg-white shadow-lg hover:border-[#391892] hover:shadow-xl appearance-none cursor-pointer">
+                    <option value="" class="text-gray-400">Select target</option>
+                    <option value="0-10" class="text-gray-900">0-10%</option>
+                    <option value="11-25" class="text-gray-900">11-25%</option>
+                    <option value="26-50" class="text-gray-900">26-50%</option>
+                    <option value="51-100" class="text-gray-900">51-100%</option>
+                    <option value="over-100" class="text-gray-900">Over 100%</option>
+                  </select>
+                  <div class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
+                    <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </div>
+                </div>
+              </div>
+              
+            </div>
+
+          </div>
+        </Card>
+
+        <!-- Contact & Completion Section -->
+        <Card title="Contact & Completion" description="Final details for report delivery" variant="elevated">
+          <div class="space-y-6">
+            
+            <!-- Name & Title -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-sm font-semibold text-gray-900 mb-2">
+                  Your Name <span class="text-red-500">*</span>
+                </label>
+                <input 
+                  type="text" 
+                  class="w-full px-4 py-3 border border-gray-300 rounded-[10px] focus:ring-2 focus:ring-[#18DD89]/20 focus:border-[#18DD89] transition-colors" 
+                  placeholder="John Smith"
+                />
+              </div>
+              <div>
+                <label class="block text-sm font-semibold text-gray-900 mb-2">Title</label>
+                <input 
+                  type="text" 
+                  class="w-full px-4 py-3 border border-gray-300 rounded-[10px] focus:ring-2 focus:ring-[#18DD89]/20 focus:border-[#18DD89] transition-colors" 
+                  placeholder="Managing Partner"
+                />
+              </div>
+            </div>
+
+            <!-- Email Address -->
+            <div>
+              <label class="block text-sm font-semibold text-gray-900 mb-2">
+                Email Address <span class="text-red-500">*</span>
+              </label>
+              <p class="text-sm text-gray-600 mb-3">Where should we send your benchmarking report?</p>
+              <input 
+                type="email" 
+                class="w-full px-4 py-3 border border-gray-300 rounded-[10px] focus:ring-2 focus:ring-[#18DD89]/20 focus:border-[#18DD89] transition-colors" 
+                placeholder="john@yourfirm.com"
+              />
+            </div>
+
+            <!-- Additional Comments -->
+            <div>
+              <label class="block text-sm font-semibold text-gray-900 mb-2">Additional Comments (Optional)</label>
+              <p class="text-sm text-gray-600 mb-3">Any context about your firm that would help us provide better benchmarks?</p>
+              <textarea 
+                class="w-full px-4 py-3 border border-gray-300 rounded-[10px] focus:ring-2 focus:ring-[#18DD89]/20 focus:border-[#18DD89] transition-colors resize-none" 
+                rows="3" 
+                placeholder="e.g., specialized focus areas, unique business model, recent changes..."
+              ></textarea>
+            </div>
+
+          </div>
+        </Card>
+
+        <!-- File Upload Section -->
+        <Card title="Supporting Documents" description="Upload any relevant files to provide additional context (optional)" variant="elevated">
+          <div class="space-y-4">
+            
+            <!-- File Drop Zone -->
+            <div 
+              id="fileDropZone"
+              class="relative border-2 border-dashed border-gray-300 rounded-[10px] p-8 text-center hover:border-[#18DD89] hover:bg-[#18DD89]/5 transition-all duration-200 cursor-pointer"
+            >
+              <input 
+                type="file" 
+                id="fileInput"
+                multiple 
+                accept=".xlsx,.xls,.pdf,.txt,.doc,.docx,.ppt,.pptx,.csv,.png,.jpg,.jpeg"
+                class="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
+              />
+              
+              <div class="flex flex-col items-center space-y-3">
+                <div class="w-12 h-12 bg-[#391892]/10 rounded-full flex items-center justify-center">
+                  <svg class="w-6 h-6 text-[#391892]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
+                  </svg>
+                </div>
+                
+                <div>
+                  <p class="text-lg font-semibold text-gray-900 mb-1">
+                    Drop files here or click to browse
+                  </p>
+                  <p class="text-sm text-gray-600">
+                    Upload Excel, PDF, Word, PowerPoint, or other relevant documents
+                  </p>
+                </div>
+                
+                <div class="flex flex-wrap justify-center gap-2 text-xs text-gray-500">
+                  <span class="bg-gray-100 px-2 py-1 rounded">.xlsx</span>
+                  <span class="bg-gray-100 px-2 py-1 rounded">.pdf</span>
+                  <span class="bg-gray-100 px-2 py-1 rounded">.doc</span>
+                  <span class="bg-gray-100 px-2 py-1 rounded">.ppt</span>
+                  <span class="bg-gray-100 px-2 py-1 rounded">.txt</span>
+                  <span class="bg-gray-100 px-2 py-1 rounded">.csv</span>
+                  <span class="bg-gray-100 px-2 py-1 rounded">+more</span>
+                </div>
+              </div>
+            </div>
+            
+            <!-- File List -->
+            <div id="fileList" class="hidden space-y-2">
+              <p class="text-sm font-semibold text-gray-900">Selected Files:</p>
+              <div id="fileItems" class="space-y-2"></div>
+            </div>
+            
+            <!-- Upload Guidelines -->
+            <div class="bg-blue-50 border border-blue-200 rounded-[10px] p-4">
+              <div class="flex items-start space-x-3">
+                <svg class="w-5 h-5 text-blue-600 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                <div class="text-sm text-blue-800">
+                  <p class="font-medium mb-1">Helpful Documents:</p>
+                  <ul class="list-disc list-inside space-y-1 text-blue-700">
+                    <li>Financial statements or revenue reports</li>
+                    <li>Organizational charts or team structure docs</li>
+                    <li>Client lists or project portfolios</li>
+                    <li>Any other context that helps us provide better benchmarks</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            
+          </div>
+        </Card>
+
+        <!-- Privacy & Instructions -->
+        <Card variant="outlined">
+          <div class="space-y-4">
+            <div class="flex items-start space-x-3">
+              <svg class="w-5 h-5 text-[#391892] mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+              </svg>
+              <div class="text-sm text-gray-700">
+                <h3 class="font-semibold text-[#391892] mb-2">Privacy & Data Usage</h3>
+                <ul class="space-y-1 list-disc list-inside">
+                  <li>All responses are kept strictly confidential and anonymous</li>
+                  <li>Individual firm data will never be shared or published</li>
+                  <li>Only aggregated industry benchmarks will be included in the report</li>
+                  <li>Uploaded files are securely processed and automatically deleted after analysis</li>
+                </ul>
+              </div>
+            </div>
+            
+            <div class="flex items-start space-x-3">
+              <svg class="w-5 h-5 text-[#18DD89] mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+              </svg>
+              <div class="text-sm text-gray-700">
+                <h3 class="font-semibold text-[#18DD89] mb-2">What You'll Receive</h3>
+                <ul class="space-y-1 list-disc list-inside">
+                  <li>Comprehensive industry benchmarking report (December 2025)</li>
+                  <li>Your firm's performance compared to industry peers</li>
+                  <li>Key insights on pricing, utilization, and growth strategies</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </Card>
+
+        <!-- Submit Section -->
+        <div class="text-center py-8">
+          <div class="mb-6">
+            <h3 class="text-2xl font-cooper-hewitt font-bold text-[#391892] uppercase mb-2">
+              Submit Your Survey
+            </h3>
+            <p class="text-gray-600 max-w-2xl mx-auto">
+              Thank you for participating in this important industry study. Your insights help create valuable benchmarks for the entire boutique consulting community.
+            </p>
+          </div>
+          
+          <!-- Terms Agreement -->
+          <div class="mb-6">
+            <label class="flex items-start justify-center space-x-3 cursor-pointer max-w-xl mx-auto">
+              <input type="checkbox" class="w-5 h-5 text-[#18DD89] border-gray-300 rounded focus:ring-[#18DD89] focus:ring-2 mt-0.5" required />
+              <span class="text-sm text-gray-700 text-left">
+                I confirm that the information provided is accurate to the best of my knowledge and I agree to the confidential use of this data for industry benchmarking purposes.
+              </span>
+            </label>
+          </div>
+          
+          <!-- Submit Button -->
+          <div class="flex justify-center">
+            <Button variant="primary" size="lg" class="px-8 py-4 text-lg">
+              Submit Survey & Get Benchmarking Report
+              <svg class="ml-3 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
+              </svg>
+            </Button>
+          </div>
+          
+          <p class="text-sm text-gray-500 mt-4">
+            Expected report delivery: <span class="font-semibold text-[#391892]">December 2025</span>
+          </p>
+        </div>
+
+      </div>
+
+
+    </div>
+  </div>
+
+  <!-- Custom Slider Styles -->
+  <style>
+    /* Range slider styling */
+    .slider::-webkit-slider-thumb {
+      appearance: none;
+      height: 20px;
+      width: 20px;
+      border-radius: 50%;
+      background: #18DD89;
+      cursor: pointer;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+    
+    .slider::-webkit-slider-track {
+      width: 100%;
+      height: 8px;
+      cursor: pointer;
+      background: #D1D5DB;
+      border-radius: 10px;
+    }
+    
+    .slider::-moz-range-thumb {
+      height: 20px;
+      width: 20px;
+      border-radius: 50%;
+      background: #18DD89;
+      cursor: pointer;
+      border: none;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+    
+    .slider::-moz-range-track {
+      width: 100%;
+      height: 8px;
+      cursor: pointer;
+      background: #D1D5DB;
+      border-radius: 10px;
+    }
+  </style>
+  
+  <script>
+    // JavaScript for Other Field Toggle and File Upload
+    document.addEventListener('DOMContentLoaded', function() {
+      console.log('DOM loaded, initializing dropdowns and file upload...');
+      
+      // Initialize all other fields
+      const otherFields = document.querySelectorAll('[id*="Other"]');
+      otherFields.forEach(field => {
+        field.style.transition = 'all 0.3s ease-in-out';
+        field.style.opacity = '0';
+        field.style.transform = 'translateY(-10px)';
+      });
+      
+      // Add event listeners to all select elements with onchange handlers
+      const primaryFocusSelect = document.getElementById('primaryFocusSelect');
+      if (primaryFocusSelect) {
+        primaryFocusSelect.addEventListener('change', function() {
+          toggleOtherField(this, 'primaryFocusOther');
+        });
+      }
+      
+      const leadSourceSelect = document.getElementById('leadSourceSelect');
+      if (leadSourceSelect) {
+        leadSourceSelect.addEventListener('change', function() {
+          toggleOtherField(this, 'leadSourceOther');
+        });
+      }
+      
+      const pmToolSelect = document.getElementById('pmToolSelect');
+      if (pmToolSelect) {
+        pmToolSelect.addEventListener('change', function() {
+          toggleOtherField(this, 'pmToolOther');
+        });
+      }
+      
+      // File upload functionality
+      initFileUpload();
+    });
+    
+    function toggleOtherField(selectElement, targetId) {
+      const otherField = document.getElementById(targetId);
+      console.log('Toggling field:', targetId, 'Selected value:', selectElement.value);
+      
+      if (!otherField) {
+        console.error('Other field not found:', targetId);
+        return;
+      }
+      
+      if (selectElement.value === 'other' || selectElement.value === 'custom') {
+        console.log('Showing other field');
+        otherField.classList.remove('hidden');
+        otherField.style.display = 'block';
+        
+        // Trigger animation after display
+        setTimeout(() => {
+          otherField.style.opacity = '1';
+          otherField.style.transform = 'translateY(0)';
+        }, 50);
+      } else {
+        console.log('Hiding other field');
+        otherField.style.opacity = '0';
+        otherField.style.transform = 'translateY(-10px)';
+        
+        setTimeout(() => {
+          otherField.classList.add('hidden');
+          otherField.style.display = 'none';
+        }, 300);
+      }
+    }
+    
+    // File upload functionality
+    function initFileUpload() {
+      const fileDropZone = document.getElementById('fileDropZone');
+      const fileInput = document.getElementById('fileInput');
+      const fileList = document.getElementById('fileList');
+      const fileItems = document.getElementById('fileItems');
+      
+      if (!fileDropZone || !fileInput) return;
+      
+      let selectedFiles = [];
+      
+      // Prevent default drag behaviors
+      ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+        fileDropZone.addEventListener(eventName, preventDefaults, false);
+        document.body.addEventListener(eventName, preventDefaults, false);
+      });
+      
+      function preventDefaults(e) {
+        e.preventDefault();
+        e.stopPropagation();
+      }
+      
+      // Highlight drop area when item is dragged over it
+      ['dragenter', 'dragover'].forEach(eventName => {
+        fileDropZone.addEventListener(eventName, highlight, false);
+      });
+      
+      ['dragleave', 'drop'].forEach(eventName => {
+        fileDropZone.addEventListener(eventName, unhighlight, false);
+      });
+      
+      function highlight(e) {
+        fileDropZone.classList.add('border-[#18DD89]', 'bg-[#18DD89]/10');
+      }
+      
+      function unhighlight(e) {
+        fileDropZone.classList.remove('border-[#18DD89]', 'bg-[#18DD89]/10');
+      }
+      
+      // Handle dropped files
+      fileDropZone.addEventListener('drop', handleDrop, false);
+      fileInput.addEventListener('change', function(e) {
+        handleFiles(e.target.files);
+      });
+      
+      function handleDrop(e) {
+        const dt = e.dataTransfer;
+        const files = dt.files;
+        handleFiles(files);
+      }
+      
+      function handleFiles(files) {
+        [...files].forEach(file => {
+          if (!selectedFiles.find(f => f.name === file.name && f.size === file.size)) {
+            selectedFiles.push(file);
+          }
+        });
+        updateFileList();
+      }
+      
+      function updateFileList() {
+        if (selectedFiles.length === 0) {
+          fileList.classList.add('hidden');
+          return;
+        }
+        
+        fileList.classList.remove('hidden');
+        fileItems.innerHTML = '';
+        
+        selectedFiles.forEach((file, index) => {
+          const fileItem = document.createElement('div');
+          fileItem.className = 'flex items-center justify-between p-3 bg-gray-50 rounded-[10px] border';
+          
+          const fileInfo = document.createElement('div');
+          fileInfo.className = 'flex items-center space-x-3';
+          
+          const fileIcon = getFileIcon(file.name);
+          fileInfo.innerHTML = `
+            <div class="w-8 h-8 bg-[#391892]/10 rounded flex items-center justify-center">
+              ${fileIcon}
+            </div>
+            <div>
+              <p class="text-sm font-medium text-gray-900">${file.name}</p>
+              <p class="text-xs text-gray-500">${formatFileSize(file.size)}</p>
+            </div>
+          `;
+          
+          const removeBtn = document.createElement('button');
+          removeBtn.className = 'text-gray-400 hover:text-red-500 transition-colors';
+          removeBtn.innerHTML = `
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          `;
+          removeBtn.onclick = () => {
+            selectedFiles.splice(index, 1);
+            updateFileList();
+          };
+          
+          fileItem.appendChild(fileInfo);
+          fileItem.appendChild(removeBtn);
+          fileItems.appendChild(fileItem);
+        });
+      }
+      
+      function getFileIcon(filename) {
+        const ext = filename.split('.').pop().toLowerCase();
+        const iconClass = 'w-4 h-4 text-[#391892]';
+        
+        if (['xlsx', 'xls', 'csv'].includes(ext)) {
+          return `<svg class="${iconClass}" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" /></svg>`;
+        } else if (ext === 'pdf') {
+          return `<svg class="${iconClass}" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>`;
+        } else if (['doc', 'docx'].includes(ext)) {
+          return `<svg class="${iconClass}" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>`;
+        } else {
+          return `<svg class="${iconClass}" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>`;
+        }
+      }
+      
+      function formatFileSize(bytes) {
+        if (bytes === 0) return '0 Bytes';
+        const k = 1024;
+        const sizes = ['Bytes', 'KB', 'MB', 'GB'];
+        const i = Math.floor(Math.log(bytes) / Math.log(k));
+        return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
+      }
+    }
+  </script>
+</Layout>

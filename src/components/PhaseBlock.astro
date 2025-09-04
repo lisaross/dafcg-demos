@@ -1,0 +1,106 @@
+---
+import type { Phase } from '../data/roadmapData';
+
+interface Props {
+  phase: Phase;
+}
+
+const { phase } = Astro.props;
+
+// Use explicit grid column classes for proper spanning
+const spanClass = phase.span === 2 ? 'phase-span-2' : 
+                 phase.span === 3 ? 'phase-span-3' : 
+                 phase.span === 4 ? 'phase-span-4' : 
+                 phase.span === 5 ? 'phase-span-5' : '';
+
+const statusClass = phase.status === 'active' ? 'phase-active' : 
+                   phase.status === 'completed' ? 'phase-completed' :
+                   'phase-future';
+const metricBgClass = phase.status === 'completed' ? 'bg-[#18DD89]' : 'bg-[#391892]';
+---
+
+{!phase.isEmpty ? (
+  <div 
+    class={`phase-block ${spanClass} ${statusClass}`}
+  >
+    <div class={`phase-metric ${metricBgClass}`}>
+      {phase.metric}
+    </div>
+    <div class="phase-title">
+      {phase.title}
+    </div>
+    <div class="phase-activities">
+      {phase.activities.map((activity, index) => (
+        <div key={index}>• {activity}</div>
+      ))}
+    </div>
+  </div>
+) : (
+  <div class={`empty-cell ${spanClass}`}></div>
+)}
+
+<style>
+  .phase-block {
+    background: #ffffff;
+    border: 2px solid transparent;
+    border-radius: 10px;
+    padding: 15px;
+    padding-top: 35px;
+    position: relative;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    min-height: 80px;
+  }
+  
+  .phase-block:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  }
+  
+  .phase-active {
+    background: rgba(24, 221, 137, 0.08);
+  }
+  
+  .phase-completed {
+    background: rgba(24, 221, 137, 0.06);
+    opacity: 0.85;
+  }
+  
+  .phase-future {
+    background: #ffffff;
+  }
+  
+  .phase-title {
+    font-weight: 700;
+    color: #212C40;
+    margin-bottom: 8px;
+    font-size: 0.95em;
+  }
+  
+  .phase-activities {
+    font-size: 0.8em;
+    color: #1A2431;
+    line-height: 1.4;
+  }
+  
+  .phase-metric {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    color: white;
+    padding: 3px 8px;
+    border-radius: 10px;
+    font-size: 0.75em;
+    font-weight: 700;
+  }
+  
+  .phase-span-2 { grid-column: span 2; }
+  .phase-span-3 { grid-column: span 3; }
+  .phase-span-4 { grid-column: span 4; }
+  .phase-span-5 { grid-column: span 5; }
+  
+  .empty-cell {
+    opacity: 0;
+    pointer-events: none;
+  }
+</style>

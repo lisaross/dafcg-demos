@@ -7,7 +7,7 @@ export interface Props extends HTMLAttributes<'div'> {
   href?: string;
   status?: 'live' | 'demo' | 'interactive';
   meta?: string;
-  variant?: 'default' | 'elevated' | 'outlined';
+  variant?: 'default' | 'elevated' | 'outlined' | 'muted';
 }
 
 const { 
@@ -25,7 +25,8 @@ const baseClasses = "rounded-[10px] p-6 transition-all duration-300";
 const variantClasses = {
   default: "bg-white shadow-sm border border-gray-200 hover:shadow-md hover:-translate-y-1",
   elevated: "bg-white shadow-lg border border-gray-200 hover:shadow-xl hover:-translate-y-2",
-  outlined: "bg-white border-2 border-gray-200 hover:border-[#391892] hover:shadow-sm"
+  outlined: "bg-white border-2 border-gray-200 hover:border-[#391892] hover:shadow-sm",
+  muted: "bg-gray-50 shadow-sm border border-gray-200 hover:shadow-md hover:-translate-y-1 opacity-75"
 };
 
 const cardClasses = `${baseClasses} ${variantClasses[variant]} ${className || ''}`;

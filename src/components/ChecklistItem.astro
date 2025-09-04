@@ -1,0 +1,99 @@
+---
+import type { ChecklistItem } from '../data/checklistData';
+
+interface Props {
+  item: ChecklistItem;
+}
+
+const { item } = Astro.props;
+---
+
+<li class="checklist-item">
+  <div class="checkbox" data-item-id={item.id}></div>
+  <div class="item-content">
+    <div class="item-title">{item.title}</div>
+    <div class="item-description">{item.description}</div>
+    <div class="item-note">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon">
+        <path d="M9 18V5l5 4-5 4V9h11"></path>
+        <circle cx="12" cy="12" r="3"></circle>
+      </svg>
+      {item.note}
+    </div>
+  </div>
+</li>
+
+<style>
+  .checklist-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    padding: 15px 0;
+    border-bottom: 1px solid #F7F7F7;
+  }
+
+  .checklist-item:last-child {
+    border-bottom: none;
+  }
+
+  .checkbox {
+    min-width: 24px;
+    height: 24px;
+    border: 2px solid #D1D2D2;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 2px;
+    background: white;
+  }
+
+  .checkbox.checked {
+    background: #18DD89;
+    border-color: #18DD89;
+    color: white;
+  }
+
+  .checkbox:hover {
+    border-color: #18DD89;
+  }
+
+  .item-content {
+    flex: 1;
+  }
+
+  .item-title {
+    font-weight: 600;
+    color: #391892;
+    margin-bottom: 5px;
+    font-size: 1.05em;
+  }
+
+  .item-description {
+    color: #6A44AE;
+    font-size: 0.9em;
+    line-height: 1.4;
+    margin-bottom: 8px;
+  }
+
+  .item-note {
+    background: rgba(24, 221, 137, 0.1);
+    padding: 8px 12px;
+    border-radius: 10px;
+    font-size: 0.8em;
+    color: #212C40;
+    border-left: 3px solid #18DD89;
+    display: flex;
+    align-items: flex-start;
+    gap: 6px;
+  }
+
+  .icon {
+    width: 16px;
+    height: 16px;
+    margin-top: 1px;
+    flex-shrink: 0;
+  }
+</style>

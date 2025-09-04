@@ -1,0 +1,33 @@
+---
+import type { Milestone } from '../data/roadmapData';
+
+interface Props {
+  milestones: Milestone[];
+}
+
+const { milestones } = Astro.props;
+---
+
+<div class="mt-10 p-8 bg-[#18DD89]/8 rounded-[10px]">
+  <div class="text-2xl font-bold text-[#391892] mb-5 text-center flex items-center justify-center gap-2">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3"/>
+      <path d="M12 9v4"/>
+      <path d="M12 17h.01"/>
+    </svg>
+    Critical Milestones
+  </div>
+  
+  <div class="grid grid-cols-[repeat(auto-fit,minmax(180px,1fr))] gap-5">
+    {milestones.map((milestone) => (
+      <div class="bg-white p-4 rounded-[10px] text-center border-2 border-transparent">
+        <div class="text-lg font-extrabold text-[#391892] mb-1">
+          {milestone.date}
+        </div>
+        <div class="text-sm text-[#212C40]">
+          {milestone.description}
+        </div>
+      </div>
+    ))}
+  </div>
+</div>

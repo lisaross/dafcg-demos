@@ -1,0 +1,137 @@
+---
+import Layout from '../components/Layout.astro';
+---
+
+<Layout title="Survey Preparation Checklist" description="Gather these documents before starting the survey">
+  <div class="max-w-2xl mx-auto py-12 px-4">
+    <h1 class="text-3xl font-bold text-gray-900 mb-4">Survey Preparation Checklist</h1>
+    <p class="text-gray-600 mb-8">Please gather these documents before starting. This will make the survey much faster.</p>
+    
+    <div class="bg-white rounded-lg border border-gray-200 p-6 mb-6">
+      <div class="mb-4">
+        <div class="text-sm text-gray-600 mb-2">Progress: <span id="progress">0/8</span></div>
+        <div class="w-full bg-gray-200 rounded-full h-2">
+          <div class="bg-[#18DD89] h-2 rounded-full transition-all duration-300" style="width: 0%" id="progressBar"></div>
+        </div>
+      </div>
+      
+      <div class="grid md:grid-cols-2 gap-8">
+        <div class="space-y-4">
+          <h3 class="font-semibold text-gray-900">Essential Documents</h3>
+          <label class="flex items-start gap-3">
+            <input type="checkbox" class="mt-1 rounded" data-item="1">
+            <div>
+              <div class="font-medium">2024 P&L Statement</div>
+              <div class="text-sm text-gray-600">Revenue and expenses report</div>
+            </div>
+          </label>
+          
+          <label class="flex items-start gap-3">
+            <input type="checkbox" class="mt-1 rounded" data-item="2">
+            <div>
+              <div class="font-medium">Employee Roster</div>
+              <div class="text-sm text-gray-600">Team headcount by role</div>
+            </div>
+          </label>
+          
+          <label class="flex items-start gap-3">
+            <input type="checkbox" class="mt-1 rounded" data-item="3">
+            <div>
+              <div class="font-medium">Billing Rates</div>
+              <div class="text-sm text-gray-600">Hourly rates by consultant level</div>
+            </div>
+          </label>
+          
+          <label class="flex items-start gap-3">
+            <input type="checkbox" class="mt-1 rounded" data-item="4">
+            <div>
+              <div class="font-medium">Contact Info</div>
+              <div class="text-sm text-gray-600">For report delivery</div>
+            </div>
+          </label>
+        </div>
+        
+        <div class="space-y-4">
+          <h3 class="font-semibold text-gray-900">If Available</h3>
+          <label class="flex items-start gap-3">
+            <input type="checkbox" class="mt-1 rounded" data-item="5">
+            <div>
+              <div class="font-medium">Client List</div>
+              <div class="text-sm text-gray-600">Recent projects with values</div>
+            </div>
+          </label>
+          
+          <label class="flex items-start gap-3">
+            <input type="checkbox" class="mt-1 rounded" data-item="6">
+            <div>
+              <div class="font-medium">Utilization Data</div>
+              <div class="text-sm text-gray-600">Billable hours tracking</div>
+            </div>
+          </label>
+          
+          <label class="flex items-start gap-3">
+            <input type="checkbox" class="mt-1 rounded" data-item="7">
+            <div>
+              <div class="font-medium">Sales Data</div>
+              <div class="text-sm text-gray-600">Win rates, pipeline info</div>
+            </div>
+          </label>
+          
+          <label class="flex items-start gap-3">
+            <input type="checkbox" class="mt-1 rounded" data-item="8">
+            <div>
+              <div class="font-medium">Key Metrics</div>
+              <div class="text-sm text-gray-600">Retention, growth targets</div>
+            </div>
+          </label>
+        </div>
+      </div>
+    </div>
+    
+    <div class="text-center">
+      <a href="/typeform-mockup" 
+         class="inline-block bg-[#18DD89] text-[#391892] px-8 py-3 rounded-lg font-semibold transition-all duration-200 hover:bg-green-500 opacity-50 pointer-events-none" 
+         id="startBtn">
+        Start Survey
+      </a>
+      <p class="text-sm text-gray-500 mt-3" id="status">Complete at least 3 items to start</p>
+    </div>
+  </div>
+</Layout>
+
+<script>
+  let count = 0;
+  const total = 8;
+  
+  function updateProgress() {
+    const progress = document.getElementById('progress');
+    const progressBar = document.getElementById('progressBar');
+    const startBtn = document.getElementById('startBtn');
+    const status = document.getElementById('status');
+    
+    if (progress) progress.textContent = `${count}/${total}`;
+    if (progressBar) progressBar.style.width = `${(count / total) * 100}%`;
+    
+    if (startBtn && status) {
+      if (count >= 3) {
+        startBtn.classList.remove('opacity-50', 'pointer-events-none');
+        startBtn.classList.add('hover:scale-105');
+        status.textContent = count >= 6 ? 'Ready to go!' : 'Ready to start';
+      } else {
+        startBtn.classList.add('opacity-50', 'pointer-events-none');
+        startBtn.classList.remove('hover:scale-105');
+        status.textContent = 'Complete at least 3 items to start';
+      }
+    }
+  }
+  
+  document.addEventListener('DOMContentLoaded', () => {
+    const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+    checkboxes.forEach(checkbox => {
+      checkbox.addEventListener('change', () => {
+        count = document.querySelectorAll('input[type="checkbox"]:checked').length;
+        updateProgress();
+      });
+    });
+  });
+</script>

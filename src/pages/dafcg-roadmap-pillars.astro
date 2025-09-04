@@ -1,0 +1,102 @@
+---
+import Layout from '../components/Layout.astro';
+import ProjectMeta from '../components/ProjectMeta.astro';
+import PillarRow from '../components/PillarRow.astro';
+import MilestoneSection from '../components/MilestoneSection.astro';
+import StatusLegend from '../components/StatusLegend.astro';
+import { roadmapData } from '../data/roadmapData';
+---
+
+<Layout title="DAFCG Benchmarking Project - Roadmap by Pillars" description="Project roadmap organized by strategic pillars showing timeline and deliverables">
+  <div class="bg-[#391892] min-h-screen py-10 px-5">
+    <div class="max-w-7xl mx-auto bg-[#F7F7F7] rounded-[10px] p-10 shadow-2xl shadow-black/20">
+      <!-- Header -->
+      <div class="text-center mb-12 border-b-4 border-transparent pb-8">
+        <h1 class="font-cooper-hewitt text-4xl text-[#391892] mb-4 font-bold tracking-tight flex items-center justify-center gap-3">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"/>
+            <circle cx="12" cy="12" r="4"/>
+            <path d="m15 9-3 3-3-3"/>
+          </svg>
+          DAFCG Benchmarking Project Roadmap
+        </h1>
+        <ProjectMeta meta={roadmapData.projectMeta} />
+      </div>
+      
+      <!-- Timeline Container -->
+      <div class="roadmap-container">
+        <!-- Timeline Header -->
+        <div class="timeline-header">
+          <div></div>
+          {roadmapData.months.map((month) => (
+            <div class="month-label">
+              {month}
+            </div>
+          ))}
+        </div>
+        
+        <!-- Pillars -->
+        <div class="pillars">
+          {roadmapData.pillars.map((pillar) => (
+            <PillarRow pillar={pillar} />
+          ))}
+        </div>
+      </div>
+      
+      <!-- Milestones -->
+      <MilestoneSection milestones={roadmapData.milestones} />
+      
+      <!-- Legend -->
+      <StatusLegend />
+    </div>
+  </div>
+</Layout>
+
+<style>
+  .roadmap-container {
+    position: relative;
+    margin-top: 40px;
+  }
+  
+  .timeline-header {
+    display: grid;
+    grid-template-columns: 200px repeat(5, 1fr);
+    gap: 10px;
+    margin-bottom: 20px;
+    padding: 0 10px;
+  }
+  
+  .month-label {
+    background: #391892;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 0.95em;
+  }
+  
+  .pillars {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+  }
+  
+  @media (max-width: 1200px) {
+    .timeline-header {
+      grid-template-columns: 150px repeat(5, 1fr);
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .timeline-header {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    
+    .timeline-header > div:first-child {
+      display: none;
+    }
+  }
+</style>

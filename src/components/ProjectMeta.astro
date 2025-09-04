@@ -1,0 +1,28 @@
+---
+import type { ProjectMeta } from '../data/roadmapData';
+
+interface Props {
+  meta: ProjectMeta;
+}
+
+const { meta } = Astro.props;
+---
+
+<div class="flex justify-center gap-10 mt-5 flex-wrap">
+  <div class="flex flex-col items-center px-5 py-2.5 bg-[#391892]/8 rounded-[10px]">
+    <span class="text-xs text-[#6A44AE] font-semibold uppercase tracking-wider">Timeline</span>
+    <span class="text-xl text-[#391892] font-bold mt-1">{meta.timeline}</span>
+  </div>
+  <div class="flex flex-col items-center px-5 py-2.5 bg-[#391892]/8 rounded-[10px]">
+    <span class="text-xs text-[#6A44AE] font-semibold uppercase tracking-wider">Target</span>
+    <span class="text-xl text-[#391892] font-bold mt-1">{meta.target}</span>
+  </div>
+  <div class="flex flex-col items-center px-5 py-2.5 bg-[#391892]/8 rounded-[10px]">
+    <span class="text-xs text-[#6A44AE] font-semibold uppercase tracking-wider">Deliverable</span>
+    <span class="text-xl text-[#391892] font-bold mt-1">{meta.deliverable}</span>
+  </div>
+  <div class="flex flex-col items-center px-5 py-2.5 bg-[#391892]/8 rounded-[10px]">
+    <span class="text-xs text-[#6A44AE] font-semibold uppercase tracking-wider">Team</span>
+    <span class="text-xl text-[#391892] font-bold mt-1">{meta.team}</span>
+  </div>
+</div>
