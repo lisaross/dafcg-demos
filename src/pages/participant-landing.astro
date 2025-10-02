@@ -1,0 +1,420 @@
+---
+// Participant-specific landing page - NO demo layout/navigation
+// For previous participants accessing via magic link
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="description" content="Welcome back to the DAFCG Benchmarking Study. Access your personalized data submission form." />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/png" href="/icons/davidafields-logo-192x192.png" />
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
+  
+  <link rel="stylesheet" href="/participant-landing-styles.css" />
+  
+  <title>Welcome Back - DAFCG Benchmarking Study 2026</title>
+  
+  <style>
+    @font-face {
+      font-family: 'Cooper Hewitt';
+      src: url('/fonts/CooperHewitt-Bold.woff2') format('woff2');
+      font-weight: 700;
+      font-style: normal;
+      font-display: swap;
+    }
+  </style>
+</head>
+
+<body>
+  <header class="header-dafcg">
+    <div class="container">
+      <div class="logo-section">
+        <a href="https://davidafields.com" class="logo">
+          <img src="/logos/dafcg-logo-original.png" alt="David A. Fields Consulting Group" />
+        </a>
+      </div>
+      
+      <div class="navigation">
+        <nav class="nav-menu">
+          <li><a href="#overview">Overview</a></li>
+          <li><a href="#pricing">Pricing</a></li>
+          <li><a href="#submit">Submit Data</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </nav>
+      </div>
+
+      <button class="mobile-menu-button" id="mobileMenuButton" aria-label="Toggle menu">
+        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+
+    <div class="mobile-nav" id="mobileNav">
+      <ul>
+        <li><a href="#overview">Overview</a></li>
+        <li><a href="#pricing">Pricing</a></li>
+        <li><a href="#submit">Submit Data</a></li>
+        <li><a href="#faq">FAQ</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <div class="bg-accent text-white py-3">
+    <div class="container mx-auto px-4 text-center">
+      <span class="font-medium">Returning Participant • Data Submission Now Open</span>
+    </div>
+  </div>
+
+  <section id="overview" class="hero-section">
+    <div class="hero-background"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <div class="container mx-auto px-4 text-center max-w-4xl">
+        <h1 class="hero-title">Welcome Back</h1>
+        <h2 class="hero-subtitle">Thank you for returning to participate in the 2026 benchmarking study</h2>
+        <p class="hero-description">Your insights help shape the industry's most comprehensive consulting firm benchmark. Access your personalized data submission form below.</p>
+        <div class="hero-actions">
+          <button class="btn-dafcg btn-primary" onclick="document.getElementById('submit').scrollIntoView({ behavior: 'smooth' })">Access Your Form</button>
+          <button class="btn-dafcg btn-secondary" onclick="document.getElementById('pricing').scrollIntoView({ behavior: 'smooth' })">View Participation Benefits</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="pricing" class="py-20 bg-white">
+    <div class="container mx-auto px-4 max-w-4xl">
+      <div class="text-center mb-16">
+        <h3 class="h3">Participant Pricing & Benefits</h3>
+      </div>
+      
+      <div class="grid md:grid-cols-2 gap-12 mb-12">
+        <div class="card-dafcg p-8 border-4 border-accent">
+          <div class="text-center mb-6">
+            <h4 class="h4 mb-2">Participant Access</h4>
+            <div class="flex items-baseline justify-center">
+              <span class="text-5xl font-bold text-accent">$500</span>
+            </div>
+            <p class="text-sm mt-2">For firms contributing data</p>
+          </div>
+          
+          <ul class="space-y-4">
+            <li class="flex items-start">
+              <svg class="w-6 h-6 text-accent mr-3 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
+              </svg>
+              <span>Comprehensive benchmarking report showing exactly where your firm stands</span>
+            </li>
+            <li class="flex items-start">
+              <svg class="w-6 h-6 text-accent mr-3 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
+              </svg>
+              <span>Custom analysis comparing you to similar firms in your market</span>
+            </li>
+            <li class="flex items-start">
+              <svg class="w-6 h-6 text-accent mr-3 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
+              </svg>
+              <span>Strategic recommendations based on what top performers do differently</span>
+            </li>
+            <li class="flex items-start">
+              <svg class="w-6 h-6 text-accent mr-3 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
+              </svg>
+              <span>Industry insights only available to firms that contribute data</span>
+            </li>
+            <li class="flex items-start">
+              <svg class="w-6 h-6 text-accent mr-3 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
+              </svg>
+              <span>Priority access to results before public release</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="card-dafcg p-8">
+          <div class="text-center mb-6">
+            <h4 class="h4 mb-2">Report Only</h4>
+            <div class="flex items-baseline justify-center">
+              <span class="text-5xl font-bold text-dafcg-purple">$3,000</span>
+            </div>
+            <p class="text-sm mt-2">For firms not contributing data</p>
+          </div>
+          
+          <ul class="space-y-4">
+            <li class="flex items-start">
+              <svg class="w-6 h-6 text-accent mr-3 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
+              </svg>
+              <span>Industry-wide benchmarking report (aggregate data only)</span>
+            </li>
+            <li class="flex items-start">
+              <svg class="w-6 h-6 text-gray-600 mr-3 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path>
+              </svg>
+              <span class="text-gray-600">No custom firm-specific analysis</span>
+            </li>
+            <li class="flex items-start">
+              <svg class="w-6 h-6 text-gray-600 mr-3 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path>
+              </svg>
+              <span class="text-gray-600">No strategic recommendations</span>
+            </li>
+            <li class="flex items-start">
+              <svg class="w-6 h-6 text-gray-600 mr-3 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path>
+              </svg>
+              <span class="text-gray-600">Standard release timeline</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="text-center p-6 bg-muted">
+        <p class="text-lg"><strong>You save $2,500</strong> by participating in the study and receive significantly more value through custom analysis and strategic recommendations.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 bg-muted">
+    <div class="container mx-auto px-4 max-w-4xl">
+      <div class="text-center mb-16">
+        <h3 class="h3">Your Data Security is Paramount</h3>
+      </div>
+      
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="card-dafcg p-6 bg-white text-center">
+          <svg class="w-12 h-12 text-accent mx-auto mb-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
+          </svg>
+          <h4 class="h4">End-to-End Encryption</h4>
+          <p>All data transmitted using industry-standard SSL/TLS encryption</p>
+        </div>
+
+        <div class="card-dafcg p-6 bg-white text-center">
+          <svg class="w-12 h-12 text-accent mx-auto mb-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+          </svg>
+          <h4 class="h4">Complete Confidentiality</h4>
+          <p>Individual firm data never disclosed. All results aggregated and anonymized</p>
+        </div>
+
+        <div class="card-dafcg p-6 bg-white text-center">
+          <svg class="w-12 h-12 text-accent mx-auto mb-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+          </svg>
+          <h4 class="h4">Secure Storage</h4>
+          <p>Data stored in enterprise-grade cloud infrastructure with strict access controls</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="submit" class="py-20 bg-primary text-white">
+    <div class="container mx-auto px-4 max-w-2xl">
+      <div class="text-center mb-12">
+        <h3 class="h3 text-white mb-6">Access Your Data Submission Form</h3>
+        <p class="text-xl opacity-90">Your personalized magic link will take you directly to your secure data submission form</p>
+      </div>
+      
+      <div class="card-dafcg bg-white text-foreground">
+        <div class="p-8">
+          <form id="participantForm" class="space-y-6">
+            <div class="grid md:grid-cols-2 gap-4">
+              <div>
+                <label for="firmName" class="block text-sm font-semibold mb-2">Firm Name *</label>
+                <input type="text" id="firmName" name="firmName" required class="input-dafcg w-full px-4 py-3 border border-gray-300" placeholder="Your consulting firm" />
+              </div>
+              <div>
+                <label for="contactEmail" class="block text-sm font-semibold mb-2">Contact Email *</label>
+                <input type="email" id="contactEmail" name="contactEmail" required class="input-dafcg w-full px-4 py-3 border border-gray-300" placeholder="your.email@firm.com" />
+              </div>
+            </div>
+
+            <div>
+              <label for="participantName" class="block text-sm font-semibold mb-2">Your Name *</label>
+              <input type="text" id="participantName" name="participantName" required class="input-dafcg w-full px-4 py-3 border border-gray-300" placeholder="Full name" />
+            </div>
+
+            <div class="bg-blue-50 border border-blue-200 p-4">
+              <h4 class="h4 mb-3">Data Access Confirmation</h4>
+              <div class="space-y-3">
+                <label class="flex items-start">
+                  <input type="checkbox" name="hasFinancialData" required class="mt-1 mr-3" />
+                  <span class="text-sm">I have access to our firm's financial data (revenue, expenses, utilization rates)</span>
+                </label>
+                
+                <label class="flex items-start">
+                  <input type="checkbox" name="hasClientData" required class="mt-1 mr-3" />
+                  <span class="text-sm">I can provide anonymized client project data and pricing information</span>
+                </label>
+                
+                <label class="flex items-start">
+                  <input type="checkbox" name="canCommitTime" required class="mt-1 mr-3" />
+                  <span class="text-sm">I can commit 15-20 minutes to complete the data submission process</span>
+                </label>
+                
+                <label class="flex items-start">
+                  <input type="checkbox" name="understandsConfidentiality" required class="mt-1 mr-3" />
+                  <span class="text-sm">I understand that all data will be kept strictly confidential and only used in aggregate form</span>
+                </label>
+              </div>
+            </div>
+
+            <button type="submit" class="btn-dafcg w-full text-center bg-accent text-white hover:bg-accent/90">Request Access Link</button>
+          </form>
+          
+          <p class="text-sm mt-4 text-center text-gray-600">You'll receive a secure magic link via email within 24 hours. Your information is used only for this study and we respect your privacy.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq" class="py-20 bg-white">
+    <div class="container mx-auto px-4 max-w-4xl">
+      <div class="text-center mb-16">
+        <h3 class="h3">Frequently Asked Questions</h3>
+      </div>
+      
+      <div class="space-y-6">
+        <div class="card-dafcg p-6">
+          <h4 class="h4">What is a magic link?</h4>
+          <p>A magic link is a secure, personalized URL that takes you directly to your data submission form without requiring a password. It's unique to you and expires after use for security purposes.</p>
+        </div>
+
+        <div class="card-dafcg p-6">
+          <h4 class="h4">How much time does data submission require?</h4>
+          <p>The data submission process takes 15-20 minutes. We recommend gathering your financial documents before starting to ensure accuracy and efficiency.</p>
+        </div>
+
+        <div class="card-dafcg p-6">
+          <h4 class="h4">Is our data kept confidential?</h4>
+          <p>Absolutely. All individual firm data is strictly confidential. Results are shared only in aggregate form, and no individual firm can be identified in any reports or analyses. We use enterprise-grade encryption and secure storage.</p>
+        </div>
+
+        <div class="card-dafcg p-6">
+          <h4 class="h4">When will I receive my custom benchmarking report?</h4>
+          <p>Participant reports will be delivered by December 31, 2025. As a returning participant, you'll receive priority access before the general release.</p>
+        </div>
+
+        <div class="card-dafcg p-6">
+          <h4 class="h4">What's included in the $500 participation fee?</h4>
+          <p>Your participation fee includes: comprehensive benchmarking report, custom analysis comparing your firm to similar peers, strategic recommendations based on top performers, and exclusive industry insights. Non-participants pay $3,000 for just the basic report without custom analysis.</p>
+        </div>
+
+        <div class="card-dafcg p-6">
+          <h4 class="h4">Can I save my progress and return later?</h4>
+          <p>Yes. Your magic link allows you to save your progress and return to complete the form at any time before the submission deadline.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer-dafcg">
+    <div class="container mx-auto px-4">
+      <div class="footer-section">
+        <h6 class="footer__title">For More Information</h6>
+        <div class="footer-links">
+          <a href="tel:+1.475.275.9075">+1.475.275.9075</a>
+          <a href="mailto:mahluli@dafcg.com">mahluli@dafcg.com</a>
+        </div>
+      </div>
+      
+      <div class="footer-section footer-center">
+        <a href="https://davidafields.com" class="company-name">David A. Fields Consulting Group</a>
+        <p class="copyright">Copyright © 2025 David A. Fields and Ascendant Consulting, LLC. All rights reserved. - <a href="https://www.davidafields.com/privacy-policy/">Privacy Policy</a></p>
+      </div>
+      
+      <div class="footer-section">
+        <h6 class="footer__title">Let's Connect</h6>
+        <div class="social-links">
+          <a href="https://twitter.com/_davidafields?lang=en" aria-label="Twitter">
+            <svg width="22" height="22" fill="currentColor" viewBox="0 0 24 24"><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/></svg>
+          </a>
+          <a href="https://www.linkedin.com/in/davidafields/" aria-label="LinkedIn">
+            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <button class="back-to-top" id="backToTop" aria-label="Back to top">
+    <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M5 15l7-7 7 7"></path>
+    </svg>
+  </button>
+
+  <script>
+    const mobileMenuButton = document.getElementById('mobileMenuButton');
+    const mobileNav = document.getElementById('mobileNav');
+    
+    mobileMenuButton?.addEventListener('click', () => {
+      mobileNav?.classList.toggle('open');
+    });
+
+    const backToTop = document.getElementById('backToTop');
+    
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 400) {
+        backToTop?.classList.add('visible');
+      } else {
+        backToTop?.classList.remove('visible');
+      }
+    });
+
+    backToTop?.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    const form = document.getElementById('participantForm');
+    form?.addEventListener('submit', (e) => {
+      e.preventDefault();
+      
+      const formData = new FormData(form);
+      const data = Object.fromEntries(formData.entries());
+      
+      const checkboxes = ['hasFinancialData', 'hasClientData', 'canCommitTime', 'understandsConfidentiality'];
+      const allChecked = checkboxes.every(name => data[name] === 'on');
+      
+      if (!allChecked) {
+        alert('Please confirm all data access requirements before proceeding.');
+        return;
+      }
+      
+      const subject = 'DAFCG Benchmark 2026 - Participant Magic Link Request';
+      const body = `Firm Name: ${data.firmName}
+Contact Email: ${data.contactEmail}
+Participant Name: ${data.participantName}
+
+I confirm that I:
+- Have access to financial data
+- Can provide client project data
+- Can commit 15-20 minutes
+- Understand confidentiality requirements
+
+Please send me my secure magic link to access the data submission form.`;
+      
+      window.location.href = `mailto:mahluli@dafcg.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    });
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', (e) => {
+        e.preventDefault();
+        const href = anchor.getAttribute('href');
+        if (href) {
+          document.querySelector(href)?.scrollIntoView({ behavior: 'smooth' });
+          mobileNav?.classList.remove('open');
+        }
+      });
+    });
+  </script>
+</body>
+</html>
